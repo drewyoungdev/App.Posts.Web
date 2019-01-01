@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Post } from 'src/app/models/post';
 
 @Component({
   selector: 'comment',
@@ -6,8 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./comment.component.scss']
 })
 export class CommentComponent implements OnInit {
-  
-  @Input() 
+
+  @Input()
+  comment : Post;
+
+  @Input()
   parentIds: Int32Array[];
   
   constructor() { }

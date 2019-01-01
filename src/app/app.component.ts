@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Post } from './models/post';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'PostsWeb';
+  comment = {
+    depth: 0,
+    id: 3,
+    parentId: 0,
+    replies: [
+      {
+        depth: 0,
+        id: 3,
+        parentId: 0
+      }
+    ]
+  };
+
+  constructor() {
+
+  }
 }

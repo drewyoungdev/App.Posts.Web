@@ -1,231 +1,238 @@
-<div class="comments-container">
-  <div>
-      <div class="comment" id="1">
-          <threadlines [parentIds]="parentIds" [currentId]="1"></threadlines>
-          <div class="comment-content">
-              <div class="comment-votes">
-                  <button class="comment-vote-btn">
-                      <div class="comment-vote-icon-up">
-                          <i class="fa fa-arrow-up"></i>
-                      </div>
-                  </button>
-                  <button class="comment-vote-btn"> 
-                      <div class="comment-vote-icon-down">
-                          <i class="fa fa-arrow-down"></i>
-                      </div>
-                  </button>
-              </div>
-              <div class="comment-header">
-                  <div class="comment-header-user">
-                      <a>
-                          user 2
-                      </a>
-                  </div>
-                  <div class="comment-header-item">
-                      322 points
-                  </div>
-                  <div class="comment-header-item">
-                      &#183;
-                  </div>
-                  <a class="comment-header-item">
-                      1 hour ago
-                  </a>
-                  <div class="comment-header-padding">
-                  </div>
-              </div>
-              <div class="comment-body">
-                  Hello World. This is my first comment. I will repeat this line. I will repeat this line. I will repeat this line. I will repeat this line.
-                  Hello World. This is my first comment. I will repeat this line. I will repeat this line. I will repeat this line. I will repeat this line.
-              </div>
-              <div class="comment-footer">
-                  <button class="comment-footer-item comment-footer-btn">
-                      <i class="fa fa-comment comment-footer-icon"></i>
-                      Reply
-                  </button>
-                  <button class="comment-footer-item comment-footer-btn">
-                      Share
-                  </button>
-                  <button class="comment-footer-item comment-footer-btn">
-                      Save
-                  </button>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div>
-      <div class="comment-depth-1" id="3">
-          <threadlines [parentIds]="[1]" [currentId]="3"></threadlines>
-          <div class="comment-content">
-              <div class="comment-votes-depth-1">
-                  <button class="comment-vote-btn">
-                      <div class="comment-vote-icon-up">
-                          <i class="fa fa-arrow-up"></i>
-                      </div>
-                  </button>
-                  <button class="comment-vote-btn"> 
-                      <div class="comment-vote-icon-down">
-                          <i class="fa fa-arrow-down"></i>
-                      </div>
-                  </button>
-              </div>
-              <div class="comment-header">
-                  <div class="comment-header-user">
-                      <a>
-                          user 3
-                      </a>
-                  </div>
-                  <div class="comment-header-item">
-                      12 points
-                  </div>
-                  <div class="comment-header-item">
-                      &#183;
-                  </div>
-                  <a class="comment-header-item">
-                      1 hour ago
-                  </a>
-                  <div class="comment-header-padding">
-                  </div>
-              </div>
-              <div class="comment-body">
-                  Reply #1 to Comment Above. Lengthen the text a little bit lorem ipsum. Enough to make two lines.
-              </div>
-              <div class="comment-footer">
-                  <button class="comment-footer-item comment-footer-btn">
-                      <i class="fa fa-comment comment-footer-icon"></i>
-                      Reply
-                  </button>
-                  <button class="comment-footer-item comment-footer-btn">
-                      Share
-                  </button>
-                  <button class="comment-footer-item comment-footer-btn">
-                      Save
-                  </button>
-              </div>
-          </div>
-      </div>
-  </div>      
-  <div>
-      <div class="comment-more-replies-depth-1" id="more-comments-id3">
-          <threadlines [includeNewThread]=false [parentIds]="[1,3]"></threadlines>
-          <div class="comment-more-replies-content">
-              <p class="comment-more-replies-text">
-                  23 more replies
-              </p>
-          </div>
-      </div>
-  </div>
-  <div>
-      <div class="comment-depth-1" id="2">
-          <threadlines [parentIds]="[1]" [currentId]="2"></threadlines>
-          <div class="comment-content">
-              <div class="comment-votes-depth-1">
-                  <button class="comment-vote-btn">
-                      <div class="comment-vote-icon-up">
-                          <i class="fa fa-arrow-up"></i>
-                      </div>
-                  </button>
-                  <button class="comment-vote-btn"> 
-                      <div class="comment-vote-icon-down">
-                          <i class="fa fa-arrow-down"></i>
-                      </div>
-                  </button>
-              </div>
-              <div class="comment-header">
-                  <div class="comment-header-user">
-                      <a>
-                          user 2
-                      </a>
-                  </div>
-                  <div class="comment-header-item">
-                      322 points
-                  </div>
-                  <div class="comment-header-item">
-                      &#183;
-                  </div>
-                  <a class="comment-header-item">
-                      1 hour ago
-                  </a>
-                  <div class="comment-header-padding">
-                  </div>
-              </div>
-              <div class="comment-body">
-                  Reply #2 to Comment Above. Lengthen the text a little bit lorem ipsum. Enough to make two lines.
-              </div>
-              <div class="comment-footer">
-                  <button class="comment-footer-item comment-footer-btn">
-                      <i class="fa fa-comment comment-footer-icon"></i>
-                      Reply
-                  </button>
-                  <button class="comment-footer-item comment-footer-btn">
-                      Share
-                  </button>
-                  <button class="comment-footer-item comment-footer-btn">
-                      Save
-                  </button>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div>
-      <div class="comment-depth-2" id="3">
-          <threadlines [parentIds]="[1,2]" [currentId]="3"></threadlines>
-          <div class="comment-content">
-              <div class="comment-votes-depth-2">
-                  <button class="comment-vote-btn">
-                      <div class="comment-vote-icon-up">
-                          <i class="fa fa-arrow-up"></i>
-                      </div>
-                  </button>
-                  <button class="comment-vote-btn"> 
-                      <div class="comment-vote-icon-down">
-                          <i class="fa fa-arrow-down"></i>
-                      </div>
-                  </button>
-              </div>
-              <div class="comment-header">
-                  <div class="comment-header-user">
-                      <a>
-                          user 2
-                      </a>
-                  </div>
-                  <div class="comment-header-item">
-                      322 points
-                  </div>
-                  <div class="comment-header-item">
-                      &#183;
-                  </div>
-                  <a class="comment-header-item">
-                      1 hour ago
-                  </a>
-                  <div class="comment-header-padding">
-                  </div>
-              </div>
-              <div class="comment-body">
-                  Here I am! 
-              </div>
-              <div class="comment-footer">
-                  <button class="comment-footer-item comment-footer-btn">
-                      <i class="fa fa-comment comment-footer-icon"></i>
-                      Reply
-                  </button>
-                  <button class="comment-footer-item comment-footer-btn">
-                      Share
-                  </button>
-                  <button class="comment-footer-item comment-footer-btn">
-                      Save
-                  </button>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div>
-      <div class="comment-more-replies" id="more-comments-id1">
-          <threadlines [includeNewThread]=false [parentIds]="[1]"></threadlines>
-          <div class="comment-more-replies-content">
-              <p class="comment-more-replies-text">
-                  6 more replies
-              </p>
-          </div>
-      </div>
-  </div>
+<div>
+    <!-- 'comment' class will adjust padding-left based on "depth" -->
+    <div [ngClass]="{ 'comment': comment.depth == 0, 
+                        'comment-depth-1': comment.depth == 1, 
+                        'comment-depth-2': comment.depth == 2 }" 
+        id="comment.id">
+        <threadlines [parentIds]="parentIds" [currentId]="comment.id"></threadlines>
+        <div class="comment-content">
+            <div class="comment-votes">
+                <button class="comment-vote-btn">
+                    <div class="comment-vote-icon-up">
+                        <i class="fa fa-arrow-up"></i>
+                    </div>
+                </button>
+                <button class="comment-vote-btn"> 
+                    <div class="comment-vote-icon-down">
+                        <i class="fa fa-arrow-down"></i>
+                    </div>
+                </button>
+            </div>
+            <div class="comment-header">
+                <div class="comment-header-user">
+                    <a>
+                        user 2
+                    </a>
+                </div>
+                <div class="comment-header-item">
+                    322 points
+                </div>
+                <div class="comment-header-item">
+                    &#183;
+                </div>
+                <a class="comment-header-item">
+                    1 hour ago
+                </a>
+                <div class="comment-header-padding">
+                </div>
+            </div>
+            <div class="comment-body">
+                Hello World. This is my first comment. I will repeat this line. I will repeat this line. I will repeat this line. I will repeat this line.
+                Hello World. This is my first comment. I will repeat this line. I will repeat this line. I will repeat this line. I will repeat this line.
+            </div>
+            <div class="comment-footer">
+                <button class="comment-footer-item comment-footer-btn">
+                    <i class="fa fa-comment comment-footer-icon"></i>
+                    Reply
+                </button>
+                <button class="comment-footer-item comment-footer-btn">
+                    Share
+                </button>
+                <button class="comment-footer-item comment-footer-btn">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 
+    ngFor on comment.replies recursively call more comment components.
+    send in 
+    ngIf if comment.numOfHiddenReplies is > 0
+-->
+<div>
+    <div class="comment-depth-1" id="3">
+        <threadlines [parentIds]="[1]" [currentId]="3"></threadlines>
+        <div class="comment-content">
+            <div class="comment-votes-depth-1">
+                <button class="comment-vote-btn">
+                    <div class="comment-vote-icon-up">
+                        <i class="fa fa-arrow-up"></i>
+                    </div>
+                </button>
+                <button class="comment-vote-btn"> 
+                    <div class="comment-vote-icon-down">
+                        <i class="fa fa-arrow-down"></i>
+                    </div>
+                </button>
+            </div>
+            <div class="comment-header">
+                <div class="comment-header-user">
+                    <a>
+                        user 3
+                    </a>
+                </div>
+                <div class="comment-header-item">
+                    12 points
+                </div>
+                <div class="comment-header-item">
+                    &#183;
+                </div>
+                <a class="comment-header-item">
+                    1 hour ago
+                </a>
+                <div class="comment-header-padding">
+                </div>
+            </div>
+            <div class="comment-body">
+                Reply #1 to Comment Above. Lengthen the text a little bit lorem ipsum. Enough to make two lines.
+            </div>
+            <div class="comment-footer">
+                <button class="comment-footer-item comment-footer-btn">
+                    <i class="fa fa-comment comment-footer-icon"></i>
+                    Reply
+                </button>
+                <button class="comment-footer-item comment-footer-btn">
+                    Share
+                </button>
+                <button class="comment-footer-item comment-footer-btn">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>      
+<div>
+    <div class="comment-more-replies-depth-1" id="more-comments-id3">
+        <threadlines [includeNewThread]=false [parentIds]="[1,3]"></threadlines>
+        <div class="comment-more-replies-content">
+            <p class="comment-more-replies-text">
+                23 more replies
+            </p>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="comment-depth-1" id="2">
+        <threadlines [parentIds]="[1]" [currentId]="2"></threadlines>
+        <div class="comment-content">
+            <div class="comment-votes-depth-1">
+                <button class="comment-vote-btn">
+                    <div class="comment-vote-icon-up">
+                        <i class="fa fa-arrow-up"></i>
+                    </div>
+                </button>
+                <button class="comment-vote-btn"> 
+                    <div class="comment-vote-icon-down">
+                        <i class="fa fa-arrow-down"></i>
+                    </div>
+                </button>
+            </div>
+            <div class="comment-header">
+                <div class="comment-header-user">
+                    <a>
+                        user 2
+                    </a>
+                </div>
+                <div class="comment-header-item">
+                    322 points
+                </div>
+                <div class="comment-header-item">
+                    &#183;
+                </div>
+                <a class="comment-header-item">
+                    1 hour ago
+                </a>
+                <div class="comment-header-padding">
+                </div>
+            </div>
+            <div class="comment-body">
+                Reply #2 to Comment Above. Lengthen the text a little bit lorem ipsum. Enough to make two lines.
+            </div>
+            <div class="comment-footer">
+                <button class="comment-footer-item comment-footer-btn">
+                    <i class="fa fa-comment comment-footer-icon"></i>
+                    Reply
+                </button>
+                <button class="comment-footer-item comment-footer-btn">
+                    Share
+                </button>
+                <button class="comment-footer-item comment-footer-btn">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="comment-depth-2" id="3">
+        <threadlines [parentIds]="[1,2]" [currentId]="3"></threadlines>
+        <div class="comment-content">
+            <div class="comment-votes-depth-2">
+                <button class="comment-vote-btn">
+                    <div class="comment-vote-icon-up">
+                        <i class="fa fa-arrow-up"></i>
+                    </div>
+                </button>
+                <button class="comment-vote-btn"> 
+                    <div class="comment-vote-icon-down">
+                        <i class="fa fa-arrow-down"></i>
+                    </div>
+                </button>
+            </div>
+            <div class="comment-header">
+                <div class="comment-header-user">
+                    <a>
+                        user 2
+                    </a>
+                </div>
+                <div class="comment-header-item">
+                    322 points
+                </div>
+                <div class="comment-header-item">
+                    &#183;
+                </div>
+                <a class="comment-header-item">
+                    1 hour ago
+                </a>
+                <div class="comment-header-padding">
+                </div>
+            </div>
+            <div class="comment-body">
+                Here I am! 
+            </div>
+            <div class="comment-footer">
+                <button class="comment-footer-item comment-footer-btn">
+                    <i class="fa fa-comment comment-footer-icon"></i>
+                    Reply
+                </button>
+                <button class="comment-footer-item comment-footer-btn">
+                    Share
+                </button>
+                <button class="comment-footer-item comment-footer-btn">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <div class="comment-more-replies" id="more-comments-id1">
+        <threadlines [includeNewThread]=false [parentIds]="[1]"></threadlines>
+        <div class="comment-more-replies-content">
+            <p class="comment-more-replies-text">
+                6 more replies
+            </p>
+        </div>
+    </div>
 </div>
