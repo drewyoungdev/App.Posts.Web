@@ -1,0 +1,77 @@
+/* #region Comment Threads */
+
+/* position threads group to top left of Comment Area */
+.comment-threads-group {
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    z-index: 2;
+}
+
+/* for each depth, we will have a comment-thread div with another class with the parent id this div points too */
+/* e.g. the div below points to thread 1234 */
+/* 
+<div class="comment-thread 1234">
+    <i class="threadline"></i>
+</div>
+ */
+.comment-thread,
+.comment-thread-new {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    margin-left: 5px;
+    width: 16px;
+}
+
+/* once we hit the depth of the current thread, we wrap the last 'comment-threads' in a div with comment-threads-current */
+/* e.g. the div below points to thread 1234 for first thread, then current thread points to 6789 */
+/* 
+<div class="comment-thread 1234">
+    <i class="threadline"></i>
+</div>
+<div class="comment-thread-new">
+    <div class="comment-thread 6789">
+        <i class="threadline"></i>
+    </div>
+</div> 
+*/
+// .comment-thread-new {
+//     margin-left: 0px;
+//     width: 0px;
+// }
+
+/* creates a threadline */
+.threadline {
+    display: block;
+    height: 100%;
+    width: 50%;
+    border-right: 2px solid rgb(237, 239, 241);
+}
+.threadline:hover {
+    border-right: 2px solid black;
+}
+
+/* we need to limit the threadline size for the current thread to allow room for voting buttons */
+/* below allows threadline height to be limited by this div's height (100% - 56px) */
+/* e.g. the div below points to thread 1234 for first thread, then current thread points to 6789 */
+/* 
+<div class="comment-thread 1234">
+    <i class="threadline"></i>
+</div>
+<div class="comment-thread-new">
+    <div class="comment-thread 6789 new-threadline-size">
+        <i class="threadline"></i>
+    </div>
+</div> 
+*/
+.new-threadline-size {
+    bottom: 0px;
+    height: calc(100% - 56px);
+    position: absolute;
+}
+
+/* #endregion */

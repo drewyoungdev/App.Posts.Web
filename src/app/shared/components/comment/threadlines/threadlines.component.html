@@ -1,0 +1,10 @@
+<!-- need to do an ngFor on loop of parents. ngIf when isLast is true  -->
+<div class="comment-threads-group">
+  <div *ngFor="let parentId of parentIds" class="comment-thread {{parentId}}">
+    <!-- {{isLast}} -->
+      <i class="threadline"></i>
+  </div>
+  <div *ngIf="includeNewThread && currentId != null" class="comment-thread currentId new-threadline-size">
+      <i class="threadline"></i>
+  </div>
+</div>
