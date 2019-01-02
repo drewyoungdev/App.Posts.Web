@@ -13,6 +13,8 @@ export class CommentComponent implements OnInit {
 
   @Input()
   parentIds: number[];
+
+  isCommentHidden: boolean;
   
   constructor() { }
 

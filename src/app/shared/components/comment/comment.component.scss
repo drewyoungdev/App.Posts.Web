@@ -1,10 +1,10 @@
 /* #region Comment Area (Threads + Content) or (Threads + More Replies) */
 
 /* Uses "depth" to determine padding to give "threads" */
-.comment,
+.comment-depth-0,
 .comment-depth-1,
 .comment-depth-2,
-.comment-more-replies,
+.comment-more-replies-depth-0,
 .comment-more-replies-depth-1 {
     box-sizing: border-box;
     padding-left: 24px;
@@ -20,7 +20,7 @@
     /* calculated from 'comment class' based on depth (e.g. here is 3 x base padding-left) */
     padding-left: 72px;
 }
-.comment-more-replies {
+.comment-more-replies-depth-0 {
     /* calculated from 'comment class' based on depth (e.g. here is 3px over from base) */
     padding-left: 21px;
 }

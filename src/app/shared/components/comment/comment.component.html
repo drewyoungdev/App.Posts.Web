@@ -1,16 +1,11 @@
-<div [ngClass]="{ 'comment': comment.depth == 0, 
-                    'comment-depth-1': comment.depth == 1, 
-                    'comment-depth-2': comment.depth == 2 }" 
-    id="comment.id">
-    <threadlines [parentIds]="parentIds" [currentId]="comment.id"></threadlines>
+<div class="comment-depth-{{comment.depth}}" id="{{comment.id}}">
+    <threadlines [depth]="comment.depth" [parentIds]="parentIds" [currentId]="comment.id"></threadlines>
     <comment-content [comment]="comment"></comment-content>
 </div>
 <div *ngFor="let reply of comment.replies">
     <comment [parentIds]="extendParentIds()" [comment]="reply"></comment>
 </div>
-<div *ngIf="comment.numOfHiddenReplies > 0"
-    [ngClass]="{ 'comment-more-replies': comment.depth == 0, 
-                    'comment-more-replies-depth-1': comment.depth == 1 }">
+<div *ngIf="comment.numOfHiddenReplies > 0" class="comment-more-replies-depth-{{comment.depth}}">
     <threadlines [parentIds]="extendParentIds()" [includeNewThread]="false"></threadlines>
     <more-replies [numOfHiddenReplies]="comment.numOfHiddenReplies"></more-replies>
 </div>

@@ -1,6 +1,4 @@
-<div [ngClass]="{ 'comment-votes': depth == 0, 
-                  'comment-votes-depth-1': depth == 1, 
-                  'comment-votes-depth-2': depth == 2 }" >
+<div class="comment-votes-depth-{{depth}}" >
   <button class="comment-vote-btn">
       <div class="comment-vote-icon-up">
           <i class="fa fa-arrow-up"></i>

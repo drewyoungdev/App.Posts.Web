@@ -8,10 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ThreadlinesComponent implements OnInit {
   
   @Input()
-  includeNewThread: boolean = true;
+  includeNewThread : boolean = true;
+
+  @Input()
+  depth : number;
 
   @Input() 
-  parentIds: Int32Array[];
+  parentIds : number[];
   
   @Input() 
   currentId : number;
@@ -37,5 +40,21 @@ export class ThreadlinesComponent implements OnInit {
       var threadLine = domElements[i].childNodes[0] as Element;
       threadLine.classList.remove('threadline-hovered');
     }
+  }
+
+  onClick(id : string) {
+    // if comment is hidden then remove
+
+    // find parent element.
+    // hide all divs with "comment-thread" with a depth >= parent element depth
+    // hide all divs with "comment-content" with a depth >= parent element depth
+    // stop loop until you hit another element in the same depth as parent
+    var domElement = document.getElementById(id);
+    console.log(domElement);
+    console.log(domElement.nextElementSibling);
+    //domElement.classList.add('hidden');
+
+    // while (element is not another element in the same depth)
+    // keep hiding siblings 
   }
 }
