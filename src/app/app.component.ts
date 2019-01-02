@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Post } from './models/post';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +8,22 @@ import { Post } from './models/post';
 export class AppComponent {
   comment = {
     depth: 0,
-    id: 3,
+    id: 1,
     parentId: 0,
+    numOfHiddenReplies: 6,
     replies: [
       {
-        depth: 0,
+        depth: 1,
         id: 3,
-        parentId: 0
+        parentId: 1,
+        numOfHiddenReplies: 3,
+        replies: [
+          {
+            depth: 2,
+            id: 2,
+            parentId: 3
+          }
+        ]
       }
     ]
   };

@@ -9,14 +9,26 @@ import { Post } from 'src/app/models/post';
 export class CommentComponent implements OnInit {
 
   @Input()
-  comment : Post;
+  comment: Post;
 
   @Input()
-  parentIds: Int32Array[];
+  parentIds: number[];
   
   constructor() { }
 
   ngOnInit() {
   }
+  
+  extendParentIds() {
+    var newArray = [];
 
+    for(var i = 0, len = this.parentIds.length; i < len; ++i)
+    {
+      newArray[i] = this.parentIds[i];
+    }
+
+    newArray.push(this.comment.id);
+
+    return newArray;
+  }
 }

@@ -1,19 +1,21 @@
-<div>
-    <!-- 'comment' class will adjust padding-left based on "depth" -->
-    <div [ngClass]="{ 'comment': comment.depth == 0, 
-                        'comment-depth-1': comment.depth == 1, 
-                        'comment-depth-2': comment.depth == 2 }" 
-        id="comment.id">
-        <threadlines [parentIds]="parentIds" [currentId]="comment.id"></threadlines>
-        <comment-content [comment]="comment"></comment-content>
-    </div>
+<div [ngClass]="{ 'comment': comment.depth == 0, 
+                    'comment-depth-1': comment.depth == 1, 
+                    'comment-depth-2': comment.depth == 2 }" 
+    id="comment.id">
+    <threadlines [parentIds]="parentIds" [currentId]="comment.id"></threadlines>
+    <comment-content [comment]="comment"></comment-content>
 </div>
-<!-- 
-    ngFor on comment.replies recursively call more comment components.
-    send in 
-    ngIf if comment.numOfHiddenReplies is > 0
--->
-<div>
+<div *ngFor="let reply of comment.replies">
+    <comment [parentIds]="extendParentIds()" [comment]="reply"></comment>
+</div>
+<div *ngIf="comment.numOfHiddenReplies > 0"
+    [ngClass]="{ 'comment-more-replies': comment.depth == 0, 
+                    'comment-more-replies-depth-1': comment.depth == 1 }">
+    <threadlines [parentIds]="extendParentIds()" [includeNewThread]="false"></threadlines>
+    <more-replies [numOfHiddenReplies]="comment.numOfHiddenReplies"></more-replies>
+</div>
+
+<!-- <div>
     <div class="comment-depth-1" id="3">
         <threadlines [parentIds]="[1]" [currentId]="3"></threadlines>
         <div class="comment-content">
@@ -188,4 +190,4 @@
             </p>
         </div>
     </div>
-</div>
+</div> -->

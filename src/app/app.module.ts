@@ -10,6 +10,7 @@ import { VotesComponent } from './shared/components/comment/content/votes/votes.
 import { HeaderComponent } from './shared/components/comment/content/header/header.component';
 import { BodyComponent } from './shared/components/comment/content/body/body.component';
 import { FooterComponent } from './shared/components/comment/content/footer/footer.component';
+import { MoreRepliesComponent } from './shared/components/comment/more-replies/more-replies.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FooterComponent } from './shared/components/comment/content/footer/foot
     VotesComponent,
     HeaderComponent,
     BodyComponent,
-    FooterComponent
+    FooterComponent,
+    MoreRepliesComponent
   ],
   imports: [
     BrowserModule,
