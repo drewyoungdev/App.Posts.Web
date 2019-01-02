@@ -1,3 +1,5 @@
-<div class="comments-container">
-    <comment [parentIds]="[]" [comment]="comment"></comment>
+<div class="comments-container">   
+    <div *ngFor="let comment of comments">
+        <comment [parentIds]="[]" [comment]="comment"></comment>
+    </div>
 </div>
