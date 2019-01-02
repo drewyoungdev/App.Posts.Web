@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { ThreadClickService } from 'src/app/shared/services/thread-click.service';
 import { ThreadClick } from 'src/app/models/threadClick';
@@ -7,7 +7,8 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'comment-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  styleUrls: ['./content.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ContentComponent implements OnInit {
 
@@ -57,6 +58,7 @@ export class ContentComponent implements OnInit {
           // only allow elements hidden by a specific parent to be shown again when that parent is clicked
           if (!shouldHide && x.classList.contains('hidden-by-' + parentId)) {
             x.classList.remove('hidden');
+            x.classList.remove('hidden-by-' + parentId);
           }
           else
           {
