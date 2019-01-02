@@ -1,18 +1,18 @@
 <!-- need to do an ngFor on loop of parents. ngIf when isLast is true  -->
 <div class="comment-threads-group">
   <div *ngFor="let parentId of parentIds; let i = index" 
-    class="comment-thread {{parentId}} depth-{{i}}" 
+    class="comment-thread {{parentId}} comment-thread-depth-{{i}}" 
     (mouseenter)="mouseEnter(parentId)"
     (mouseleave)="mouseLeave(parentId)"
-    (click)="onClick(parentId)">
+    (click)="onClick(parentId, i)">
     <!-- {{isLast}} -->
       <i class="threadline"></i>
   </div>
   <div *ngIf="includeNewThread && currentId != null" 
-    class="comment-thread {{currentId}} depth-{{depth}} new-threadline-size" 
+    class="comment-thread {{currentId}} comment-thread-depth-{{depth}} new-threadline-size" 
     (mouseenter)="mouseEnter(currentId)"
     (mouseleave)="mouseLeave(currentId)"
-    (click)="onClick(currentId)">
+    (click)="onClick(currentId, depth)">
       <i class="threadline"></i>
   </div>
 </div>

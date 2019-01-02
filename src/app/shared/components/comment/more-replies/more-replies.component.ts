@@ -8,6 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MoreRepliesComponent implements OnInit {
 
   @Input()
+  depth : number;
+
+  @Input()
   numOfHiddenReplies : number;
   
   constructor() { }

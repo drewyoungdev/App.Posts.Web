@@ -5,7 +5,7 @@
 <div *ngFor="let reply of comment.replies">
     <comment [parentIds]="extendParentIds()" [comment]="reply"></comment>
 </div>
-<div *ngIf="comment.numOfHiddenReplies > 0" class="comment-more-replies-depth-{{comment.depth}}">
+<div class="comment-more-replies-depth-{{comment.depth}}" *ngIf="comment.numOfHiddenReplies > 0">
     <threadlines [parentIds]="extendParentIds()" [includeNewThread]="false"></threadlines>
-    <more-replies [numOfHiddenReplies]="comment.numOfHiddenReplies"></more-replies>
+    <more-replies [depth]="comment.depth" [numOfHiddenReplies]="comment.numOfHiddenReplies"></more-replies>
 </div>
