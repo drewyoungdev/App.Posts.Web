@@ -1,0 +1,38 @@
+
+/* #region Comment Content Header */
+
+/* Create flex-box to contain all header elements */
+.comment-header {
+    -webkit-box-align: center;
+    align-items: center;
+    line-height: 16px;
+    display: flex;
+    margin-left: 0px;
+    min-height: 18px;
+}
+
+.comment-header-user,
+.comment-header-item {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+
+    flex: 0 0 auto;
+}
+.comment-header-user {
+    color: rgb(68, 78, 89);
+    display: inline-block;
+}
+.comment-header-item {
+    color: rgb(124, 124, 124);
+    padding-left: 8px;
+}
+
+.comment-header-padding {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+}
+
+/* #endregion  */

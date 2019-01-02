@@ -5,54 +5,7 @@
                         'comment-depth-2': comment.depth == 2 }" 
         id="comment.id">
         <threadlines [parentIds]="parentIds" [currentId]="comment.id"></threadlines>
-        <div class="comment-content">
-            <div class="comment-votes">
-                <button class="comment-vote-btn">
-                    <div class="comment-vote-icon-up">
-                        <i class="fa fa-arrow-up"></i>
-                    </div>
-                </button>
-                <button class="comment-vote-btn"> 
-                    <div class="comment-vote-icon-down">
-                        <i class="fa fa-arrow-down"></i>
-                    </div>
-                </button>
-            </div>
-            <div class="comment-header">
-                <div class="comment-header-user">
-                    <a>
-                        user 2
-                    </a>
-                </div>
-                <div class="comment-header-item">
-                    322 points
-                </div>
-                <div class="comment-header-item">
-                    &#183;
-                </div>
-                <a class="comment-header-item">
-                    1 hour ago
-                </a>
-                <div class="comment-header-padding">
-                </div>
-            </div>
-            <div class="comment-body">
-                Hello World. This is my first comment. I will repeat this line. I will repeat this line. I will repeat this line. I will repeat this line.
-                Hello World. This is my first comment. I will repeat this line. I will repeat this line. I will repeat this line. I will repeat this line.
-            </div>
-            <div class="comment-footer">
-                <button class="comment-footer-item comment-footer-btn">
-                    <i class="fa fa-comment comment-footer-icon"></i>
-                    Reply
-                </button>
-                <button class="comment-footer-item comment-footer-btn">
-                    Share
-                </button>
-                <button class="comment-footer-item comment-footer-btn">
-                    Save
-                </button>
-            </div>
-        </div>
+        <comment-content [comment]="comment"></comment-content>
     </div>
 </div>
 <!-- 
