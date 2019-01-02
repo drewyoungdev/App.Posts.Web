@@ -22,7 +22,11 @@
 
 .comment-btn-depth-0,
 .comment-btn-depth-1,
-.comment-btn-depth-2 {
+.comment-btn-depth-2,
+.comment-btn-depth-3,
+.comment-btn-depth-4,
+.comment-btn-depth-5,
+.comment-btn-depth-6 {
     left: -5px;
     
     position: absolute;
@@ -38,12 +42,22 @@
     margin: 0 0 0 7px;
 }
 .comment-btn-depth-1 {
-    /* calculated from 'comment-btn-depth-x class' based on depth (e.g. here is (- (3 x base left)) */
     left: 16px;
 }
 .comment-btn-depth-2 {
-    /* calculated from 'comment-btn-depth-x class' based on depth (e.g. here is (- (3 x base left)) */
     left: 37px;
+}
+.comment-btn-depth-3 {
+    left: 58px;
+}
+.comment-btn-depth-4 {
+    left: 79px;
+}
+.comment-btn-depth-5 {
+    left: 100px;
+}
+.comment-btn-depth-6 {
+    left: 121px;
 }
 
 .comment-btn {

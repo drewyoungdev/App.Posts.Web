@@ -4,8 +4,18 @@
 .comment-depth-0,
 .comment-depth-1,
 .comment-depth-2,
+.comment-depth-3,
+.comment-depth-4,
+.comment-depth-5,
+.comment-depth-6,
 .comment-more-replies-depth-0,
-.comment-more-replies-depth-1 {
+.comment-more-replies-depth-1,
+.comment-more-replies-depth-2,
+.comment-more-replies-depth-3,
+.comment-more-replies-depth-4,
+.comment-more-replies-depth-5,
+.comment-more-replies-depth-6 
+{
     box-sizing: border-box;
     padding-left: 24px;
     position: relative;
@@ -13,20 +23,43 @@
     overflow: visible;
 }
 .comment-depth-1 {
-    /* calculated from 'comment class' based on depth (e.g. here is 2 x base padding-left) */
     padding-left: 48px;
 }
 .comment-depth-2 {
-    /* calculated from 'comment class' based on depth (e.g. here is 3 x base padding-left) */
     padding-left: 72px;
 }
+.comment-depth-3 {
+    padding-left: 96px;
+}
+.comment-depth-4 {
+    padding-left: 120px;
+}
+.comment-depth-5 {
+    padding-left: 144px;
+}
+.comment-depth-6 {
+    padding-left: 168px;
+}
 .comment-more-replies-depth-0 {
-    /* calculated from 'comment class' based on depth (e.g. here is 3px over from base) */
     padding-left: 21px;
 }
 .comment-more-replies-depth-1 {
-    /* calculated from 'comment class' based on depth (e.g. here is 2 x original per depth) */
     padding-left: 42px;
+}
+.comment-more-replies-depth-2 {
+    padding-left: 63px;
+}
+.comment-more-replies-depth-3 {
+    padding-left: 84px;
+}
+.comment-more-replies-depth-4 {
+    padding-left: 105px;
+}
+.comment-more-replies-depth-5 {
+    padding-left: 126px;
+}
+.comment-more-replies-depth-6 {
+    padding-left: 147px;
 }
 
 /* #endregion */

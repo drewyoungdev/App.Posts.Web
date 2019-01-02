@@ -25,9 +25,56 @@ export class AppComponent {
               parentId: 3
             }
           ]
+        },
+        {
+          depth: 1,
+          id: 6,
+          parentId: 1,
+          numOfHiddenReplies: 2,
+          replies: [
+            {
+              depth: 2,
+              id: 7,
+              parentId: 6,
+              replies: [
+                {
+                  depth: 3,
+                  id: 8,
+                  parentId: 7,
+                  replies: [
+                    {
+                      depth: 4,
+                      id: 9,
+                      parentId: 8,
+                      numOfHiddenReplies: 23
+                    },
+                    {
+                      depth: 4,
+                      id: 10,
+                      parentId: 8,
+                      replies: [
+                        {
+                          depth: 5,
+                          id: 11,
+                          parentId: 10,
+                          replies: [
+                            {
+                              depth: 6,
+                              id: 12,
+                              parentId: 11
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
-      ]
-    },  
+      ],    
+    },
     {
       depth: 0,
       id: 4,
