@@ -1,3 +1,4 @@
+<!-- TODO: Add ngIf here to display collapsed view if isHidden=true. Need to pass a reference to this to each threadlines component to toggle -->
 <div class="comment-depth-{{comment.depth}}" id="{{comment.id}}">
     <threadlines [depth]="comment.depth" [parentIds]="parentIds" [currentId]="comment.id"></threadlines>
     <comment-content [comment]="comment"></comment-content>
