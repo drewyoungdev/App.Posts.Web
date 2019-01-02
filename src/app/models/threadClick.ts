@@ -1,4 +1,5 @@
 export class ThreadClick {
+    shouldHide: boolean;
     id: string;
-    numOfChildren: number;
+    depth: number;
 }

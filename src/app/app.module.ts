@@ -11,6 +11,7 @@ import { HeaderComponent } from './shared/components/comment/content/header/head
 import { BodyComponent } from './shared/components/comment/content/body/body.component';
 import { FooterComponent } from './shared/components/comment/content/footer/footer.component';
 import { MoreRepliesComponent } from './shared/components/comment/more-replies/more-replies.component';
+import { ExpandButtonComponent } from './shared/components/comment/content/expand-button/expand-button.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MoreRepliesComponent } from './shared/components/comment/more-replies/m
     HeaderComponent,
     BodyComponent,
     FooterComponent,
-    MoreRepliesComponent
+    MoreRepliesComponent,
+    ExpandButtonComponent
   ],
   imports: [
     BrowserModule,

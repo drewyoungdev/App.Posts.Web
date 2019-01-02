@@ -1,10 +1,9 @@
-// TODO: Combine styling with Expand-Button and rename VotesComponent to VoteButtonComponent
-/* #region Comment Content Votes */
+/* #region Comment Content Expand Buttons */
 
-/* positions the comment-vote area over the current threadline */
-.comment-votes-depth-0,
-.comment-votes-depth-1,
-.comment-votes-depth-2 {
+/* positions the comment-expand-button area over the current threadline */
+.comment-expand-depth-0,
+.comment-expand-depth-1,
+.comment-expand-depth-2 {
     left: -5px;
     
     position: absolute;
@@ -17,32 +16,27 @@
     max-height: 40px;
     text-align: center;
     z-index: 3;
-    margin: 4px -1px -2px 9px;
+
+    // changed expand margin top to 2px (otherwise this is exactly the same as vote)
+    margin: 0 -1px -2px 9px;
 }
-.comment-votes-depth-1 {
+.comment-expand-depth-1 {
     /* calculated from 'comment-votes class' based on depth (e.g. here is (- (3 x base left)) */
     left: 15px;
 }
-.comment-votes-depth-2 {
+.comment-expand-depth-2 {
     /* calculated from 'comment-votes class' based on depth (e.g. here is (- (3 x base left)) */
     left: 35px;
 }
 
-.comment-vote-btn {
+.comment-expand-btn {
     height: 20px;
 }
 
-.comment-vote-icon-up,
-.comment-vote-icon-down {
+.comment-expand-icon {
     cursor: pointer;
     color: rgb(135, 138, 140);
     border-radius: 2px;
-}
-.comment-vote-icon-up:hover {
-    color: orangered;
-}
-.comment-vote-icon-down:hover {
-    color: cornflowerblue;
 }
 
 /* #endregion */

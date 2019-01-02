@@ -45,33 +45,10 @@ export class ThreadlinesComponent implements OnInit {
   }
 
   onClick(id : string, depth : number) {
-    var parentElement = document.getElementById(id);
-    var nextElem = parentElement.nextElementSibling;
-
-    // while next sibling does not contain same comment-depth-x as parent (all elements under parent in same depth)
-    var count = 0;
-    while (nextElem != null && !nextElem.classList.contains('comment-depth-' + depth))
-    {
-      // hide all elements with the same or greater depth (max of 6)
-      for (var i = depth; i <= 6; i++) {
-        var elementsToHide = nextElem.querySelectorAll('div.depth-' + i);
-
-        elementsToHide.forEach(x => {
-          x.classList.add('hidden');
-          
-          // update count if list contains an element with comment-content-depth-x
-          if (x.classList.contains('comment-content-depth-' + i)) {
-            count++;
-          }
-        });
-      }
-
-      nextElem = nextElem.nextElementSibling;
-    }
-    
     var threadClick = new ThreadClick();
+    threadClick.shouldHide = true;
     threadClick.id = id;
-    threadClick.numOfChildren = count;
+    threadClick.depth = depth;
     
     this.threadClickService.Stream.emit(threadClick);
   }

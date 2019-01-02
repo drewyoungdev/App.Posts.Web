@@ -6,5 +6,6 @@
 </div>
 <!-- hidden view requires same classes for tagging purposes -->
 <div *ngIf="isHidden" class="comment-content comment-content-depth-{{comment.depth}} depth-{{comment.depth}}">
+    <comment-expand-button [currentId]="comment.id" [depth]="comment.depth"></comment-expand-button>
     <comment-header [isHidden]="isHidden" [numOfChildrenHidden]="numOfChildrenHidden"></comment-header>
 </div>
