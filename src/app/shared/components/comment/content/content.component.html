@@ -1,5 +1,5 @@
 <div *ngIf="!isHidden" class="comment-content comment-content-depth-{{comment.depth}} depth-{{comment.depth}}">
-    <comment-votes [depth]="comment.depth"></comment-votes>
+    <comment-vote-buttons [depth]="comment.depth"></comment-vote-buttons>
     <comment-header></comment-header>
     <comment-body></comment-body>
     <comment-footer></comment-footer>
