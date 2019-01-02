@@ -1,18 +1,21 @@
 <div class="comment-header">
-  <div class="comment-header-user">
-      <a>
-          user 2
-      </a>
-  </div>
-  <div class="comment-header-item">
-      322 points
-  </div>
-  <div class="comment-header-item">
-      &#183;
-  </div>
-  <a class="comment-header-item">
-      1 hour ago
-  </a>
-  <div class="comment-header-padding">
-  </div>
+    <div class="comment-header-user">
+        <a>
+            user 2
+        </a>
+    </div>
+    <div class="comment-header-item">
+        322 points
+    </div>
+    <div class="comment-header-item">
+        &#183;
+    </div>
+    <a class="comment-header-item">
+        1 hour ago
+    </a>
+    <div *ngIf="isHidden" class="comment-header-item">
+        ({{numOfChildrenHidden}} replies)
+    </div>
+    <div class="comment-header-padding">
+    </div>
 </div>

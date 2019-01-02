@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ThreadClickService } from 'src/app/shared/services/thread-click.service';
+import { ThreadClick } from 'src/app/models/threadClick';
 
 @Component({
   selector: 'threadlines',
@@ -19,7 +21,7 @@ export class ThreadlinesComponent implements OnInit {
   @Input() 
   currentId : number;
 
-  constructor() {
+  constructor(private threadClickService : ThreadClickService) {
   }
 
   ngOnInit() {
@@ -43,25 +45,34 @@ export class ThreadlinesComponent implements OnInit {
   }
 
   onClick(id : string, depth : number) {
-    // TODO: add state check to see if thread is currently hidden then remove class
-    //this.isCommentHidden = true;
-
     var parentElement = document.getElementById(id);
-    parentElement.classList.add('hidden');
-
     var nextElem = parentElement.nextElementSibling;
 
     // while next sibling does not contain same comment-depth-x as parent (all elements under parent in same depth)
-    // hide all elements with the same or greater depth
+    var count = 0;
     while (nextElem != null && !nextElem.classList.contains('comment-depth-' + depth))
     {
-      for (var i = depth; i <= 6; i++)
-      {
+      // hide all elements with the same or greater depth (max of 6)
+      for (var i = depth; i <= 6; i++) {
         var elementsToHide = nextElem.querySelectorAll('div.depth-' + i);
-        elementsToHide.forEach(x => x.classList.add('hidden'));
+
+        elementsToHide.forEach(x => {
+          x.classList.add('hidden');
+          
+          // update count if list contains an element with comment-content-depth-x
+          if (x.classList.contains('comment-content-depth-' + i)) {
+            count++;
+          }
+        });
       }
 
-      nextElem = nextElem.nextElementSibling
+      nextElem = nextElem.nextElementSibling;
     }
+    
+    var threadClick = new ThreadClick();
+    threadClick.id = id;
+    threadClick.numOfChildren = count;
+    
+    this.threadClickService.Stream.emit(threadClick);
   }
 }

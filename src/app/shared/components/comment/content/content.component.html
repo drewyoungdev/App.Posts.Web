@@ -1,6 +1,10 @@
-<div class="comment-content comment-content-depth-{{comment.depth}} depth-{{comment.depth}}">
+<div *ngIf="!isHidden" class="comment-content comment-content-depth-{{comment.depth}} depth-{{comment.depth}}">
     <comment-votes [depth]="comment.depth"></comment-votes>
     <comment-header></comment-header>
     <comment-body></comment-body>
     <comment-footer></comment-footer>
+</div>
+<!-- hidden view requires same classes for tagging purposes -->
+<div *ngIf="isHidden" class="comment-content comment-content-depth-{{comment.depth}} depth-{{comment.depth}}">
+    <comment-header [isHidden]="isHidden" [numOfChildrenHidden]="numOfChildrenHidden"></comment-header>
 </div>
