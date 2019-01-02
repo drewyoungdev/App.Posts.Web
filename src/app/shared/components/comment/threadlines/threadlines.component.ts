@@ -22,4 +22,20 @@ export class ThreadlinesComponent implements OnInit {
   ngOnInit() {
   }
 
+  mouseEnter(id : string) {
+    var domElements = document.getElementsByClassName(id);
+
+    for (var i = 0; i < domElements.length; i++) {
+      var threadLine = domElements[i].childNodes[0] as Element;
+      threadLine.classList.add('threadline-hovered');
+    }
+  }
+
+  mouseLeave(id : string) {
+    var domElements = document.getElementsByClassName(id);
+    for (var i = 0; i < domElements.length; i++) {
+      var threadLine = domElements[i].childNodes[0] as Element;
+      threadLine.classList.remove('threadline-hovered');
+    }
+  }
 }
