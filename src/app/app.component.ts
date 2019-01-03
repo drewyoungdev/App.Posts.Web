@@ -22,7 +22,8 @@ export class AppComponent {
             {
               depth: 2,
               id: 2,
-              parentId: 3
+              parentId: 3,
+              replies: []
             }
           ]
         },
@@ -46,7 +47,8 @@ export class AppComponent {
                       depth: 4,
                       id: 9,
                       parentId: 8,
-                      numOfHiddenReplies: 23
+                      numOfHiddenReplies: 23,
+                      replies: []
                     },
                     {
                       depth: 4,
@@ -61,7 +63,16 @@ export class AppComponent {
                             {
                               depth: 6,
                               id: 12,
-                              parentId: 11
+                              parentId: 11,
+                              mustContinueInNewThread: true,
+                              replies: []
+                            },
+                            {
+                              depth: 6,
+                              id: 13,
+                              parentId: 11,
+                              numOfHiddenReplies: 12,
+                              replies: []
                             }
                           ]
                         }
@@ -78,12 +89,14 @@ export class AppComponent {
     {
       depth: 0,
       id: 4,
-      parentId: 0
+      parentId: 0,
+      replies: []
     },  
     {
       depth: 0,
       id: 5,
-      parentId: 0
+      parentId: 0,
+      replies: []
     }
   ];
 

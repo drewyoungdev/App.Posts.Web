@@ -1,12 +1,11 @@
-<!-- TODO: Add ngIf here to display collapsed view if isHidden=true. Need to pass a reference to this to each threadlines component to toggle -->
 <div class="comment-depth-{{comment.depth}}" id="{{comment.id}}">
     <threadlines [depth]="comment.depth" [parentIds]="parentIds" [currentId]="comment.id"></threadlines>
     <comment-content [comment]="comment"></comment-content>
 </div>
 <div *ngFor="let reply of comment.replies">
     <comment [parentIds]="extendParentIds()" [comment]="reply"></comment>
-</div>
-<div class="comment-more-replies-depth-{{comment.depth}}" *ngIf="comment.numOfHiddenReplies > 0">
+</div>   
+<div class="comment-more-replies-depth-{{comment.depth}}" *ngIf="comment.numOfHiddenReplies > 0 || comment.mustContinueInNewThread">
     <threadlines [parentIds]="extendParentIds()" [includeNewThread]="false"></threadlines>
-    <more-replies [depth]="comment.depth" [numOfHiddenReplies]="comment.numOfHiddenReplies"></more-replies>
+    <more-replies [depth]="comment.depth" [mustContinueInNewThread]="comment.mustContinueInNewThread" [numOfHiddenReplies]="comment.numOfHiddenReplies"></more-replies>
 </div>

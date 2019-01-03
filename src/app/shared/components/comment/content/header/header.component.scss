@@ -10,7 +10,10 @@
     margin-left: 0px;
     min-height: 18px;
 }
-
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
 .comment-header-user,
 .comment-header-item {
     font-size: 12px;

@@ -12,6 +12,9 @@ export class MoreRepliesComponent implements OnInit {
 
   @Input()
   numOfHiddenReplies : number;
+
+  @Input()
+  mustContinueInNewThread : boolean = false;
   
   constructor() { }
 

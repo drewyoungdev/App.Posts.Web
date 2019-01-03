@@ -1,6 +1,9 @@
-<!-- have to tag this as well with duplicate class to ensure it gets picked up by queryselectorall -->
 <div class="comment-more-replies-content depth-{{depth}}">
-  <p class="comment-more-replies-text">
+  <p *ngIf="!mustContinueInNewThread" class="comment-more-replies-text">
       {{numOfHiddenReplies}} more replies
+  </p>
+  <p *ngIf="mustContinueInNewThread" class="comment-more-replies-text">
+      Continue with thread 
+      <i class="fa fa-arrow-right"></i>
   </p>
 </div>
