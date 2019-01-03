@@ -1,19 +1,19 @@
 <div class="comment-header">
-    <div class="comment-header-user">
+    <div [ngClass]="{ 'comment-header-user': !isHidden, 'comment-header-user-hidden': isHidden }">
         <a>
             user 2
         </a>
     </div>
-    <div class="comment-header-item">
+    <div [ngClass]="{ 'comment-header-item': !isHidden, 'comment-header-item-hidden': isHidden }">
         322 points
     </div>
-    <div class="comment-header-item">
+    <div [ngClass]="{ 'comment-header-item': !isHidden, 'comment-header-item-hidden': isHidden }">
         &#183;
     </div>
-    <a class="comment-header-item">
+    <a [ngClass]="{ 'comment-header-item': !isHidden, 'comment-header-item-hidden': isHidden }">
         1 hour ago
     </a>
-    <div *ngIf="isHidden" class="comment-header-item">
+    <div *ngIf="isHidden" [ngClass]="{ 'comment-header-item': !isHidden, 'comment-header-item-hidden': isHidden }">
         ({{numOfChildrenHidden}} children)
     </div>
     <div class="comment-header-padding">

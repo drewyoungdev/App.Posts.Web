@@ -1,3 +1,5 @@
+@import '../../../../../..//styles.scss';
+
 .comment-header {
     -webkit-box-align: center;
     align-items: center;
@@ -11,7 +13,9 @@ a:hover {
     text-decoration: underline;
 }
 .comment-header-user,
-.comment-header-item {
+.comment-header-user-hidden,
+.comment-header-item,
+.comment-header-item-hidden {
     font-size: 12px;
     font-weight: 400;
     line-height: 16px;
@@ -19,11 +23,19 @@ a:hover {
     flex: 0 0 auto;
 }
 .comment-header-user {
-    color: rgb(68, 78, 89);
+    color: $primaryColorTint75;
+    display: inline-block;
+}
+.comment-header-user-hidden { 
+    color: $primaryColorTint25;
     display: inline-block;
 }
 .comment-header-item {
-    color: rgb(124, 124, 124);
+    color: $blackTint50;
+    padding-left: 8px;
+}
+.comment-header-item-hidden {
+    color: $blackTint25;
     padding-left: 8px;
 }
 

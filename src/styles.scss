@@ -2,6 +2,14 @@
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
 
+$primaryColor: #C8102E;
+$primaryColorTint75: #D64C62;
+$primaryColorTint50: #E38796;
+$primaryColorTint25: #F1C3CB;
+
+$blackTint50: #808080;
+$blackTint25: #BEBEBE;
+
 * {
     font-family: 'Roboto', sans-serif;
 }
