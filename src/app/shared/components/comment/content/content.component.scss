@@ -1,49 +1,5 @@
-/* #region Comment Content */
-
-/* sizing for the header, body, and footer of comment. padding left and top because comments will be cascading down and to the right */
-.comment-content {
-    box-sizing: border-box;
-    opacity: 1;
-    margin-left: 4px;
-    padding-left: 4px;
-    padding-top: 8px;
-    max-width: 800px;
-    width: 100%;
-    border-width: 1px;
-    border-style: solid;
-    border-color: transparent;
-    border-image: initial;
-    border-radius: 4px;
-}
-
-/* #endregion */
-
-/* #region Comment Action Buttons */
-
-.comment-btn {
-    position: absolute;
-    -webkit-box-align: center;
-    align-items: center;
-    display: flex;
-    fill: inherit;
-    flex-direction: column;
-    width: 20px;
-    height: 30px;
-    text-align: center;
-    z-index: 3;
-    margin: 0 0 0 -27px;
-}
-
 .comment-btn-icon {
     cursor: pointer;
     color: rgb(135, 138, 140);
     border-radius: 2px;
 }
-.comment-vote-up:hover {
-    color: orangered;
-}
-.comment-vote-down:hover {
-    color: cornflowerblue;
-}
-
-/* #endregion */

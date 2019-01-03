@@ -1,65 +1,80 @@
-/* #region Comment Area (Threads + Content) or (Threads + More Replies) */
+$maxDepth: 6;
+$threadWidth: 16px;
+$threadMarginLeft: 5px;
 
-/* Uses "depth" to determine padding to give "threads" */
-.comment-depth-0,
-.comment-depth-1,
-.comment-depth-2,
-.comment-depth-3,
-.comment-depth-4,
-.comment-depth-5,
-.comment-depth-6,
-.comment-more-replies-depth-0,
-.comment-more-replies-depth-1,
-.comment-more-replies-depth-2,
-.comment-more-replies-depth-3,
-.comment-more-replies-depth-4,
-.comment-more-replies-depth-5,
-.comment-more-replies-depth-6 
-{
+.comment-thread,
+.comment-thread-new {
+    cursor: pointer;
     box-sizing: border-box;
-    padding-left: 24px;
-    position: relative;
-    width: 100%;
-    overflow: visible;
-}
-.comment-depth-1 {
-    padding-left: 44px;
-}
-.comment-depth-2 {
-    padding-left: 68px;
-}
-.comment-depth-3 {
-    padding-left: 88px;
-}
-.comment-depth-4 {
-    padding-left: 108px;
-}
-.comment-depth-5 {
-    padding-left: 128px;
-}
-.comment-depth-6 {
-    padding-left: 148px;
-}
-.comment-more-replies-depth-0 {
-    padding-left: 22px;
-}
-.comment-more-replies-depth-1 {
-    padding-left: 42px;
-}
-.comment-more-replies-depth-2 {
-    padding-left: 66px;
-}
-.comment-more-replies-depth-3 {
-    padding-left: 86px;
-}
-.comment-more-replies-depth-4 {
-    padding-left: 106px;
-}
-.comment-more-replies-depth-5 {
-    padding-left: 126px;
-}
-.comment-more-replies-depth-6 {
-    padding-left: 146px;
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    margin-left: $threadMarginLeft;
+    width: $threadWidth;
 }
 
-/* #endregion */
+@for $i from 0 through $maxDepth {
+    $commentPaddingLeft: ($i + 1)*($threadWidth + $threadMarginLeft);
+
+    .#{comment-depth}-#{$i}
+    {
+        padding-left: $commentPaddingLeft;
+        box-sizing: border-box;
+        position: relative;
+        width: 100%;
+        overflow: visible;
+    }
+
+    .#{comment-more-replies-depth}-#{$i}
+    {
+        padding-left: $commentPaddingLeft - 2px;
+        box-sizing: border-box;
+        position: relative;
+        width: 100%;
+        overflow: visible;
+    }
+}
+
+$commentContentPaddingTop: 8px;
+$commentContentPaddingLeft: 4px;
+$commentContentMarginLeft: 8px;
+
+.comment-content {
+    box-sizing: border-box;
+    opacity: 1;
+    margin-left: $commentContentMarginLeft;
+    padding-left: $commentContentPaddingLeft;
+    padding-top: $commentContentPaddingTop;
+    max-width: 800px;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 4px;
+}
+
+$commentBtnWidth: 20px;
+$commentBtnHeight: 30px;
+$commentBtnMarginLeft: -($commentContentPaddingLeft + $commentContentMarginLeft + (0.5 * $threadWidth) + (0.5 * $commentBtnWidth));
+
+.comment-btn {
+    position: absolute;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    fill: inherit;
+    flex-direction: column;
+    width: $commentBtnWidth;
+    height: $commentBtnHeight;
+    text-align: center;
+    z-index: 3;
+    margin: 0 0 0 $commentBtnMarginLeft;
+}
+
+$newThreadSpacing: $commentBtnHeight + (0.5 * $commentBtnHeight) + $commentContentPaddingTop;
+.new-threadline-size {
+    bottom: 0px;
+    height: calc(100% - #{$newThreadSpacing});
+    position: absolute;
+}

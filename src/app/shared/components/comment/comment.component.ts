@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Post } from 'src/app/models/post';
 
 @Component({
   selector: 'comment',
   templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.scss']
+  styleUrls: ['./comment.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CommentComponent implements OnInit {
 
