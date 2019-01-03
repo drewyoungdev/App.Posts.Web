@@ -20,48 +20,18 @@
 
 /* #region Comment Action Buttons */
 
-.comment-btn-depth-0,
-.comment-btn-depth-1,
-.comment-btn-depth-2,
-.comment-btn-depth-3,
-.comment-btn-depth-4,
-.comment-btn-depth-5,
-.comment-btn-depth-6 {
-    left: -5px;
-    
+.comment-btn {
     position: absolute;
     -webkit-box-align: center;
     align-items: center;
     display: flex;
     fill: inherit;
     flex-direction: column;
-    min-width: 24px;
-    max-height: 40px;
+    width: 20px;
+    height: 30px;
     text-align: center;
     z-index: 3;
-    margin: 0 0 0 7px;
-}
-.comment-btn-depth-1 {
-    left: 16px;
-}
-.comment-btn-depth-2 {
-    left: 37px;
-}
-.comment-btn-depth-3 {
-    left: 58px;
-}
-.comment-btn-depth-4 {
-    left: 79px;
-}
-.comment-btn-depth-5 {
-    left: 100px;
-}
-.comment-btn-depth-6 {
-    left: 121px;
-}
-
-.comment-btn {
-    height: 20px;
+    margin: 0 0 0 -27px;
 }
 
 .comment-btn-icon {
