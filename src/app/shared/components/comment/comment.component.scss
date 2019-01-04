@@ -1,19 +1,6 @@
-$maxDepth: 6;
-$threadWidth: 16px;
-$threadMarginLeft: 5px;
+@import './src/assets/scss/_variables.scss';
 
-.comment-thread,
-.comment-thread-new {
-    cursor: pointer;
-    box-sizing: border-box;
-    display: inline-block;
-    height: 100%;
-    vertical-align: top;
-    margin-left: $threadMarginLeft;
-    width: $threadWidth;
-}
-
-@for $i from 0 through $maxDepth {
+@for $i from 0 through ($maxDepth - 1) {
     $commentPaddingLeft: ($i + 1)*($threadWidth + $threadMarginLeft);
 
     .#{comment-depth}-#{$i}
@@ -33,48 +20,4 @@ $threadMarginLeft: 5px;
         width: 100%;
         overflow: visible;
     }
-}
-
-$commentContentPaddingTop: 8px;
-$commentContentPaddingLeft: 4px;
-$commentContentMarginLeft: 8px;
-
-.comment-content {
-    box-sizing: border-box;
-    opacity: 1;
-    margin-left: $commentContentMarginLeft;
-    padding-left: $commentContentPaddingLeft;
-    padding-top: $commentContentPaddingTop;
-    max-width: 800px;
-    width: 100%;
-    border-width: 1px;
-    border-style: solid;
-    border-color: transparent;
-    border-image: initial;
-    border-radius: 4px;
-}
-
-$commentBtnWidth: 20px;
-$commentBtnHeight: 30px;
-$commentBtnMarginLeft: -($commentContentPaddingLeft + $commentContentMarginLeft + (0.5 * $threadWidth) + (0.5 * $commentBtnWidth));
-
-.comment-btn {
-    position: absolute;
-    -webkit-box-align: center;
-    align-items: center;
-    display: flex;
-    fill: inherit;
-    flex-direction: column;
-    width: $commentBtnWidth;
-    height: $commentBtnHeight;
-    text-align: center;
-    z-index: 3;
-    margin: 0 0 0 $commentBtnMarginLeft;
-}
-
-$newThreadSpacing: $commentBtnHeight + (0.5 * $commentBtnHeight) + $commentContentPaddingTop;
-.new-threadline-size {
-    bottom: 0px;
-    height: calc(100% - #{$newThreadSpacing});
-    position: absolute;
 }

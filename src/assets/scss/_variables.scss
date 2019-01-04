@@ -1,0 +1,19 @@
+$primaryColor: #C8102E;
+$primaryColorTint75: #D64C62;
+$primaryColorTint50: #E38796;
+$primaryColorTint25: #F1C3CB;
+
+$blackTint50: #808080;
+$blackTint25: #BEBEBE;
+
+$maxDepth: 7;
+$threadWidth: 16px;
+$threadMarginLeft: 5px;
+
+$commentContentPaddingTop: 8px;
+$commentContentPaddingLeft: 4px;
+$commentContentMarginLeft: 8px;
+
+$commentBtnWidth: 20px;
+$commentBtnHeight: 30px;
+$commentBtnMarginLeft: -($commentContentPaddingLeft + $commentContentMarginLeft + (0.5 * $threadWidth) + (0.5 * $commentBtnWidth));

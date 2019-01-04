@@ -31,6 +31,10 @@ export class AppComponent {
               depth: 2,
               id: 2,
               parentId: 3,
+              author: 'test_this_out12',
+              points: -23,
+              body: 'That is good!',
+              createDate: '2019-01-04T04:25:11',
               replies: []
             }
           ]

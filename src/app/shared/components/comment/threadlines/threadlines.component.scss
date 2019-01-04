@@ -1,4 +1,4 @@
-@import '../../../../../styles.scss';
+@import './src/assets/scss/_variables.scss';
 
 .comment-threads-group {
     bottom: 0px;
@@ -6,6 +6,17 @@
     position: absolute;
     top: 0px;
     z-index: 2;
+}
+
+.comment-thread,
+.comment-thread-new {
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    margin-left: $threadMarginLeft;
+    width: $threadWidth;
 }
 
 .threadline {
@@ -16,4 +27,11 @@
 }
 .threadline-hovered {
     border-right: 2px solid $primaryColorTint75;
+}
+
+$newThreadSpacing: $commentBtnHeight + (0.5 * $commentBtnHeight);
+.new-threadline-size {
+    bottom: 0px;
+    height: calc(100% - #{$newThreadSpacing});
+    position: absolute;
 }
