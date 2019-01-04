@@ -8,6 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   @Input()
+  author : string;
+
+  @Input()
+  points : number;
+
+  @Input()
+  createDate: string;
+  
+  @Input()
   isHidden : boolean;
 
   @Input()

@@ -1,17 +1,20 @@
 <div class="comment-header">
     <div [ngClass]="{ 'comment-header-user': !isHidden, 'comment-header-user-hidden': isHidden }">
         <a>
-            user 2
+            {{author}}
         </a>
     </div>
     <div [ngClass]="{ 'comment-header-item': !isHidden, 'comment-header-item-hidden': isHidden }">
-        322 points
+        {{points | numberSuffix : 1 }} points
     </div>
     <div [ngClass]="{ 'comment-header-item': !isHidden, 'comment-header-item-hidden': isHidden }">
         &#183;
     </div>
     <a [ngClass]="{ 'comment-header-item': !isHidden, 'comment-header-item-hidden': isHidden }">
-        1 hour ago
+        {{createDate | amTimeAgo }}
+        
+        <!-- when create_date is converted into create_date_utc -->
+        <!-- {{createDate | amFromUtc | amLocal | amTimeAgo }} -->
     </a>
     <div *ngIf="isHidden" [ngClass]="{ 'comment-header-item': !isHidden, 'comment-header-item-hidden': isHidden }">
         ({{numOfChildrenHidden}} children)

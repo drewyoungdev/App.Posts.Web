@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+// Refactor into separate CommentsModule then into SharedModule
 import { CommentComponent } from './shared/components/comment/comment.component';
 import { ThreadlinesComponent } from './shared/components/comment/threadlines/threadlines.component';
 import { ContentComponent } from './shared/components/comment/content/content.component';
@@ -12,6 +14,10 @@ import { FooterComponent } from './shared/components/comment/content/footer/foot
 import { MoreRepliesComponent } from './shared/components/comment/more-replies/more-replies.component';
 import { ExpandButtonComponent } from './shared/components/comment/content/expand-button/expand-button.component';
 import { VoteButtonsComponent } from './shared/components/comment/content/vote-buttons/vote-buttons.component';
+
+// Refactor into SharedModule
+import { MomentModule } from 'angular2-moment';
+import { NumberSuffixPipe } from './shared/pipes/number-suffix.pipe';
 
 @NgModule({
   declarations: [
@@ -24,11 +30,13 @@ import { VoteButtonsComponent } from './shared/components/comment/content/vote-b
     FooterComponent,
     MoreRepliesComponent,
     ExpandButtonComponent,
-    VoteButtonsComponent
+    VoteButtonsComponent,
+    NumberSuffixPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MomentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

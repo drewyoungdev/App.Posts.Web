@@ -11,12 +11,20 @@ export class AppComponent {
       depth: 0,
       id: 1,
       parentId: 0,
+      author: 'userNumeroUno12',
+      points: 2332,
+      body: 'Lorem ipsum dolor sit amet, ne vis stet interpretaris, vis vocibus tacimates delicatissimi ad. Per viderer equidem ex. Tale eirmod vis et, vix ad iudicabit mediocritatem, eos ad maiorum deleniti molestiae. Ea vix sumo consul, at vim dicit affert impedit, ea nec wisi ignota liberavisse. Dolores noluisse instructior an pri, timeam principes no has. An sit inani viris accumsan.',
+      createDate: '2019-01-03T23:12:11',
       numOfHiddenReplies: 6,
       replies: [
         {
           depth: 1,
           id: 3,
           parentId: 1,
+          author: 'userNumeroUno12',
+          points: 2332,
+          body: 'Lorem ipsum dolor sit amet, usu nostro labitur in, nam ad harum.',
+          createDate: '2019-01-04T04:25:11',
           numOfHiddenReplies: 3,
           replies: [
             {

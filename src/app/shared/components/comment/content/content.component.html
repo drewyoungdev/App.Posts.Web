@@ -1,11 +1,11 @@
 <div *ngIf="!isHidden" class="comment-content comment-content-depth-{{comment.depth}} depth-{{comment.depth}}">
     <comment-vote-buttons [depth]="comment.depth"></comment-vote-buttons>
-    <comment-header></comment-header>
-    <comment-body></comment-body>
+    <comment-header [author]="comment.author" [points]="comment.points" [createDate]="comment.createDate"></comment-header>
+    <comment-body [bodyText]="comment.body"></comment-body>
     <comment-footer></comment-footer>
 </div>
 <!-- hidden view requires same classes for tagging purposes -->
 <div *ngIf="isHidden" class="comment-content comment-content-depth-{{comment.depth}} depth-{{comment.depth}}">
     <comment-expand-button [currentId]="comment.id" [depth]="comment.depth"></comment-expand-button>
-    <comment-header [isHidden]="isHidden" [numOfChildrenHidden]="numOfChildrenHidden"></comment-header>
+    <comment-header [isHidden]="isHidden" [author]="comment.author" [points]="comment.points" [createDate]="comment.createDate" [numOfChildrenHidden]="numOfChildrenHidden"></comment-header>
 </div>
