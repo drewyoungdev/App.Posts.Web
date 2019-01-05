@@ -15,7 +15,7 @@ export class ContentComponent implements OnInit {
   @Input()
   comment : Post;
 
-  isHidden : boolean = false;
+  collapsed : boolean = false;
   numOfChildrenHidden : number;
 
   subscription : Subscription;
@@ -30,7 +30,7 @@ export class ContentComponent implements OnInit {
 
   processClick(threadClick : ThreadClick) {
     if (threadClick.id == this.comment.id) {
-      this.isHidden = threadClick.shouldHide;
+      this.collapsed = threadClick.shouldHide;
 
       var numOfChildrenHidden = this.toggleChildren(threadClick.id, threadClick.depth, threadClick.shouldHide);
 
