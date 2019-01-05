@@ -18,6 +18,7 @@ import { VoteButtonsComponent } from './shared/components/comment/content/vote-b
 // Refactor into SharedModule
 import { MomentModule } from 'angular2-moment';
 import { NumberSuffixPipe } from './shared/pipes/number-suffix.pipe';
+import { ReplyBoxComponent } from './shared/components/reply-box/reply-box.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NumberSuffixPipe } from './shared/pipes/number-suffix.pipe';
     MoreRepliesComponent,
     ExpandButtonComponent,
     VoteButtonsComponent,
-    NumberSuffixPipe
+    NumberSuffixPipe,
+    ReplyBoxComponent
   ],
   imports: [
     BrowserModule,
