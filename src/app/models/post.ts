@@ -1,6 +1,6 @@
 export class Post {
-    id : number;
-    parentId : number;
+    id : string;
+    parentId : string;
     depth : number;
     numOfHiddenReplies : number;
     replies : Post[];

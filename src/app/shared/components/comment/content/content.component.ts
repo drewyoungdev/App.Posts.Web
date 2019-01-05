@@ -29,7 +29,7 @@ export class ContentComponent implements OnInit {
   }
 
   processClick(threadClick : ThreadClick) {
-    if (parseInt(threadClick.id) == this.comment.id) {
+    if (threadClick.id == this.comment.id) {
       this.isHidden = threadClick.shouldHide;
 
       var numOfChildrenHidden = this.toggleChildren(threadClick.id, threadClick.depth, threadClick.shouldHide);

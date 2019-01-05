@@ -13,7 +13,7 @@ export class CommentComponent implements OnInit {
   comment: Post;
 
   @Input()
-  parentIds: number[];
+  parentIds: string[];
   
   constructor() { }
 

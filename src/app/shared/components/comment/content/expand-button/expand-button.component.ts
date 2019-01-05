@@ -10,7 +10,7 @@ import { ThreadClick } from 'src/app/models/threadClick';
 export class ExpandButtonComponent implements OnInit {
   
   @Input()
-  currentId : number;
+  currentId : string;
 
   @Input()
   depth : number;

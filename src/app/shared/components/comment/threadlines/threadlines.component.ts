@@ -16,10 +16,10 @@ export class ThreadlinesComponent implements OnInit {
   depth : number;
 
   @Input() 
-  parentIds : number[];
+  parentIds : string[];
   
   @Input() 
-  currentId : number;
+  currentId : string;
 
   constructor(private threadClickService : ThreadClickService) {
   }
