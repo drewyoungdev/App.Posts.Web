@@ -1,10 +1,4 @@
-<div class="comment-more-replies-content depth-{{comment.depth}}">
-  <div *ngIf="!comment.mustContinueInNewThread" (click)="moreRepliesOnClick()" class="comment-more-replies-text">
-    <p *ngIf="!showLoadingMessage">{{comment.numOfHiddenReplies}} more replies</p>
-    <p *ngIf="showLoadingMessage">Loading...</p>
-  </div>
-  <p *ngIf="comment.mustContinueInNewThread" class="comment-more-replies-text">
-      Continue with thread 
-      <i class="fa fa-arrow-right"></i>
-  </p>
+<div (click)="moreRepliesOnClick()" class="comment-more-replies-text depth-{{comment.depth}}">
+  <p *ngIf="!showLoadingMessage">{{comment.numOfHiddenReplies}} more replies</p>
+  <p *ngIf="showLoadingMessage">Loading...</p>
 </div>

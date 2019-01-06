@@ -5,9 +5,18 @@
 <div *ngFor="let reply of comment.replies">
     <comment [previousParentIds]="parentIds" [comment]="reply"></comment>
 </div>
-<div *ngIf="!isRepliesLoaded">
-    <div class="comment-more-replies-depth-{{comment.depth}}" *ngIf="comment.numOfHiddenReplies > 0 || comment.mustContinueInNewThread">
-        <threadlines [previousParentIds]="parentIds" [includeNewThread]="false"></threadlines>
-        <more-replies [comment]="comment" (repliesLoadedEvent)="repliesLoaded($event)"></more-replies>
+<div class="comment-more-replies-depth-{{comment.depth}}">
+    <threadlines [previousParentIds]="parentIds" [includeNewThread]="false"></threadlines>   
+    <div *ngIf="!isRepliesLoaded && comment.numOfHiddenReplies > 0">
+        <more-replies [comment]="comment" (repliesLoadedEvent)="repliesLoaded($event)"></more-replies>  
+    </div>
+    <div *ngIf="comment.mustContinueInNewThread">
+        <!-- move into it's own component -->
+        <div class="comment-more-replies-text depth-{{comment.depth}}">
+            <p>
+                Continue with thread {{comment.depth}}
+                <i class="fa fa-arrow-right"></i>
+            </p>
+        </div>
     </div>
 </div>

@@ -52,8 +52,15 @@ export class ContentComponent implements OnInit {
     newComment.id = Math.random().toString();
     newComment.body = 'Test Comment';
     
+    // Need global variable for max depth 6 (used twice in this file and once in _variable.scss)
+    // Also need better way of handling continue in new thread...
+    // Server side has it's check, however, how do we stop a client from keep on clicking reply button?
+    // Should all posts that are one level before max depth just be tagged with "continue in new thread" content?
+    // and also have the reply button disabled or removed?
+    // If so, should I remove that check on server side that looks for any additional records after max depth to tag it as must continue?
+
     if (newComment.depth == 6) {      
-      // if post coming back is MaxDepth - 1, then force user to enter new thread
+      // if post coming back is MaxDepth - 1, then force user to enter new thread to view post
       newComment.mustContinueInNewThread = true;
     }
     

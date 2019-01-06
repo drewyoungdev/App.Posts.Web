@@ -78,16 +78,16 @@ export class AppComponent {
                               parentId: 11,
                               mustContinueInNewThread: true,
                               replies: []
-                            },
-                            {
-                              depth: 6,
-                              id: 13,
-                              parentId: 11,
-                              numOfHiddenReplies: 12,
-                              replies: []
                             }
                           ]
-                        }
+                        },
+                        {
+                          depth: 5,
+                          id: 13,
+                          parentId: 10,
+                          numOfHiddenReplies: 12,
+                          replies: []
+                        }                      
                       ]
                     }
                   ]
