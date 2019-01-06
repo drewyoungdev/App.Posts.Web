@@ -1,5 +1,5 @@
 <div class="comment-footer">
-  <button (click)="isReplyClicked = !isReplyClicked" class="comment-footer-item comment-footer-btn">
+  <button (click)="showReply = !showReply" class="comment-footer-item comment-footer-btn">
       <i class="fa fa-comment comment-footer-icon"></i>
       Reply
   </button>
@@ -10,4 +10,4 @@
       Save
   </button>
 </div>
-<reply-box *ngIf="isReplyClicked"></reply-box>
+<reply-box *ngIf="showReply" [canCancel]="true" (replyCancelledEvent)="replyCancelled($event)" (replySubmittedEvent)="replySubmitted($event)"></reply-box>

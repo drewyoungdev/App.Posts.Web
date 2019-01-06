@@ -1,13 +1,10 @@
 <div class="reply-box-container">
-  <div class="reply-box-body">
-    <div class="draft-editor-content">
-      Hello World
+    <textarea [(ngModel)]="replyText" (ngModelChange)="textAreaEmpty()" placeholder="What are your thoughts?" class="draft-editor-content"></textarea>
+    <div class="reply-box-footer">
+      <div>
+        <button *ngIf="canCancel" (click)="cancelOnClick()" class="reply-box-cancel-btn">Cancel</button>
+        <button *ngIf="isTextAreaEmpty" class="reply-box-submit-btn-disabled">Reply</button>
+        <button *ngIf="!isTextAreaEmpty" (click)="replyOnClick()" class="reply-box-submit-btn">Reply</button>
+      </div>
     </div>
-  </div>
-  <div class="reply-box-footer">
-    <div>
-      <button class="reply-box-btn reply-box-cancel-btn">Cancel</button>
-      <button class="reply-box-btn reply-box-submit-btn">Reply</button>
-    </div>
-  </div>
 </div>

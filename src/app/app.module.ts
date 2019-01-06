@@ -19,6 +19,7 @@ import { VoteButtonsComponent } from './shared/components/comment/content/vote-b
 import { MomentModule } from 'angular2-moment';
 import { NumberSuffixPipe } from './shared/pipes/number-suffix.pipe';
 import { ReplyBoxComponent } from './shared/components/reply-box/reply-box.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ReplyBoxComponent } from './shared/components/reply-box/reply-box.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MomentModule
+    MomentModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

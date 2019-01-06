@@ -8,11 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   @Input()
-  isReplyClicked : boolean = false;
+  showReply : boolean = false;
   
   constructor() { }
 
   ngOnInit() {
   }
 
+  replyCancelled($event) {
+    // show reply is false if event returns true (meaning reply was cancelled)
+    this.showReply = !$event;
+  }
+  
+  replySubmitted($event) {
+    // show reply is false if event returns true (meaning reply was submitted)
+    this.showReply = !$event;
+  }
 }

@@ -1,3 +1,5 @@
+@import './src/assets/scss/_variables.scss';
+
 .reply-box-container {
     margin: 16px 0;
     position: relative;
@@ -13,6 +15,16 @@
     color: rgb(28, 28, 28);
     min-height: 122px;
     word-break: break-word;
+
+    padding: 15px 0 0 15px;
+    border: none;
+    resize: none;
+    outline: black;
+    width:100%;
+    height:100%; 
+    box-sizing: border-box;         /* For IE and modern versions of Chrome */
+    -moz-box-sizing: border-box;    /* For Firefox                          */
+    -webkit-box-sizing: border-box; /* For Safari                           */
 }
 
 .reply-box-footer {
@@ -29,28 +41,51 @@
     border-radius: 0px 0px 4px 4px;
 }
 
-.reply-box-btn {
+.reply-box-cancel-btn,
+.reply-box-submit-btn {
     box-sizing: border-box;
     text-align: center;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.5px;
     line-height: 24px;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     background-color: transparent;
-    color: rgb(68, 78, 89);
-    fill: rgb(68, 78, 89);
+    color: $primaryColor;
     border-width: 1px;
     border-style: solid;
     border-image: initial;
     border-radius: 4px;
     text-decoration: none;
     padding: 3px 16px;
-    border-color: rgb(68, 78, 89);
 }
-.reply-bx-btn-cancel {
+
+.reply-box-submit-btn-disabled,
+.reply-box-submit-btn {    
+    min-width: 96px;
+    min-height: 27px;
+    margin: 4px 8px;
+    border-radius: 4px;
+    line-height: normal;
+}
+.reply-box-submit-btn {
+    background-color: $primaryColor;
+    border-color: $primaryColorTint75;
+    color: white;
+}
+.reply-box-submit-btn-disabled {
+    background-color: $primaryColorTint50;
+    border-color: $primaryColorTint25;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+}
+
+.reply-box-cancel-btn {
     min-width: 85px;
     border: none;
     line-height: normal;
     margin-right: 16px;
+}
+.reply-box-cancel-btn:hover {
+    color: $primaryColorTint75;
 }
