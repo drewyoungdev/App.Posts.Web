@@ -4,8 +4,10 @@
 </div>
 <div *ngFor="let reply of comment.replies">
     <comment [previousParentIds]="parentIds" [comment]="reply"></comment>
-</div>   
-<div class="comment-more-replies-depth-{{comment.depth}}" *ngIf="comment.numOfHiddenReplies > 0 || comment.mustContinueInNewThread">
-    <threadlines [previousParentIds]="parentIds" [includeNewThread]="false"></threadlines>
-    <more-replies [depth]="comment.depth" [mustContinueInNewThread]="comment.mustContinueInNewThread" [numOfHiddenReplies]="comment.numOfHiddenReplies"></more-replies>
+</div>
+<div *ngIf="!isRepliesLoaded">
+    <div class="comment-more-replies-depth-{{comment.depth}}" *ngIf="comment.numOfHiddenReplies > 0 || comment.mustContinueInNewThread">
+        <threadlines [previousParentIds]="parentIds" [includeNewThread]="false"></threadlines>
+        <more-replies [comment]="comment" (repliesLoadedEvent)="repliesLoaded($event)"></more-replies>
+    </div>
 </div>

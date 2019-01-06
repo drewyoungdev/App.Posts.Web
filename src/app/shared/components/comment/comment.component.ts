@@ -17,6 +17,8 @@ export class CommentComponent implements OnInit {
 
   @Input()
   parentIds: string[];
+
+  isRepliesLoaded: boolean = false;
   
   constructor() { }
 
@@ -31,5 +33,9 @@ export class CommentComponent implements OnInit {
     newArray.push(this.comment.id);
 
     this.parentIds = newArray;
+  }
+
+  repliesLoaded($event) {
+    this.isRepliesLoaded = $event;
   }
 }

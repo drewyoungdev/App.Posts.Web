@@ -51,10 +51,8 @@ export class ContentComponent implements OnInit {
     newComment.depth = this.comment.depth + 1;
     newComment.id = Math.random().toString();
     newComment.body = 'Test Comment';
-
-    console.log(newComment);
     
-    if (newComment.depth  == 6) {      
+    if (newComment.depth == 6) {      
       // if post coming back is MaxDepth - 1, then force user to enter new thread
       newComment.mustContinueInNewThread = true;
     }
