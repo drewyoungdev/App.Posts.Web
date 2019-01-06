@@ -3,5 +3,5 @@
     <comment-expand-button [hidden]="!collapsed" [currentId]="comment.id" [depth]="comment.depth"></comment-expand-button>
     <comment-header [isHidden]="collapsed" [author]="comment.author" [points]="comment.points" [createDate]="comment.createDate" [numOfChildrenHidden]="numOfChildrenHidden"></comment-header>
     <comment-body [hidden]="collapsed" [bodyText]="comment.body"></comment-body>
-    <comment-footer [hidden]="collapsed"></comment-footer>
+    <comment-footer [hidden]="collapsed" (replyClickedEvent)="replyClicked($event)"></comment-footer>
 </div>

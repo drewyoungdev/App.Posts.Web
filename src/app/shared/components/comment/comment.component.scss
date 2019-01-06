@@ -20,4 +20,8 @@
         width: 100%;
         overflow: visible;
     }
+    
+    .#{comment-reply-box} {
+        margin-left: $commentContentMarginLeft;
+    }
 }

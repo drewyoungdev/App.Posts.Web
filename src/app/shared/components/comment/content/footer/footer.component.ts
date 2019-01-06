@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'comment-footer',
@@ -7,21 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  @Input()
-  showReply : boolean = false;
-  
+  @Output()
+  replyClickedEvent = new EventEmitter<boolean>()
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  replyCancelled($event) {
-    // show reply is false if event returns true (meaning reply was cancelled)
-    this.showReply = !$event;
-  }
-  
-  replySubmitted($event) {
-    // show reply is false if event returns true (meaning reply was submitted)
-    this.showReply = !$event;
+  replyOnClick() {
+    this.replyClickedEvent.emit(true);
   }
 }

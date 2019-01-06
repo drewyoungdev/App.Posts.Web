@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { ThreadClickService } from 'src/app/shared/services/thread-click.service';
 import { ThreadClick } from 'src/app/models/threadClick';
@@ -15,6 +15,9 @@ export class ContentComponent implements OnInit {
   @Input()
   comment : Post;
 
+  @Output()
+  replyClickedEvent = new EventEmitter<boolean>()
+
   collapsed : boolean = false;
   numOfChildrenHidden : number;
 
@@ -26,6 +29,10 @@ export class ContentComponent implements OnInit {
     this.subscription = this.threadClickService.Stream.subscribe(threadClick => {
       return this.processClick(threadClick);
     });
+  }
+
+  replyClicked($event) {
+    this.replyClickedEvent.emit($event);
   }
 
   processClick(threadClick : ThreadClick) {
