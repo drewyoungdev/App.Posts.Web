@@ -16,6 +16,9 @@ export class ThreadlinesComponent implements OnInit {
   depth : number;
 
   @Input() 
+  previousParentIds : string[];
+
+  @Input() 
   parentIds : string[];
   
   @Input() 
@@ -25,6 +28,17 @@ export class ThreadlinesComponent implements OnInit {
   }
 
   ngOnInit() {
+    var newArray = [];
+
+    for(var i = 0, len = this.previousParentIds.length; i < len; ++i)
+    {
+      if (this.previousParentIds[i] != this.currentId)
+      {
+        newArray[i] = this.previousParentIds[i];
+      }
+    }
+
+    this.parentIds = newArray;
   }
 
   mouseEnter(id : string) {

@@ -13,23 +13,23 @@ export class CommentComponent implements OnInit {
   comment: Post;
 
   @Input()
+  previousParentIds: string[];
+
+  @Input()
   parentIds: string[];
   
   constructor() { }
 
   ngOnInit() {
-  }
-  
-  extendParentIds() {
     var newArray = [];
 
-    for(var i = 0, len = this.parentIds.length; i < len; ++i)
+    for(var i = 0, len = this.previousParentIds.length; i < len; ++i)
     {
-      newArray[i] = this.parentIds[i];
+      newArray[i] = this.previousParentIds[i];
     }
 
     newArray.push(this.comment.id);
 
-    return newArray;
+    this.parentIds = newArray;
   }
 }
