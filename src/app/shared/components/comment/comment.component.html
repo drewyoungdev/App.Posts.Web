@@ -1,9 +1,6 @@
 <div class="comment-depth-{{comment.depth}}" id="{{comment.id}}">
     <threadlines [depth]="comment.depth" [previousParentIds]="parentIds" [currentId]="comment.id"></threadlines>
-    <comment-content [comment]="comment" (replyClickedEvent)="replyClicked($event)"></comment-content>
-    <div class="comment-reply-box">
-        <reply-box *ngIf="showReply" [canCancel]="true" (replyCancelledEvent)="replyCancelled($event)" (replySubmittedEvent)="replySubmitted($event)"></reply-box>
-    </div>
+    <comment-content [comment]="comment"></comment-content>
 </div>
 <div *ngFor="let reply of comment.replies">
     <comment [previousParentIds]="parentIds" [comment]="reply"></comment>

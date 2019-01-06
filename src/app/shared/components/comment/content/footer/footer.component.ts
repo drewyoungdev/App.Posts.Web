@@ -8,7 +8,9 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   @Output()
-  replyClickedEvent = new EventEmitter<boolean>()
+  replyClickedEvent = new EventEmitter<boolean>();
+
+  showReply : boolean = false;
 
   constructor() { }
 
@@ -16,6 +18,7 @@ export class FooterComponent implements OnInit {
   }
 
   replyOnClick() {
-    this.replyClickedEvent.emit(true);
+    this.showReply = !this.showReply;
+    this.replyClickedEvent.emit(this.showReply);
   }
 }

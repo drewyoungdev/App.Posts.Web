@@ -20,6 +20,7 @@ export class ContentComponent implements OnInit {
 
   collapsed : boolean = false;
   numOfChildrenHidden : number;
+  showReply : boolean = false;
 
   subscription : Subscription;
   
@@ -27,15 +28,42 @@ export class ContentComponent implements OnInit {
 
   ngOnInit() {
     this.subscription = this.threadClickService.Stream.subscribe(threadClick => {
-      return this.processClick(threadClick);
+      return this.processThreadClick(threadClick);
     });
   }
 
   replyClicked($event) {
-    this.replyClickedEvent.emit($event);
+    this.showReply = $event;
+  }
+  
+  replyCancelled($event) {
+    // show reply is false if event returns true (meaning reply was cancelled)
+    this.showReply = !$event;
+  }
+  
+  replySubmitted($event) {
+    // show reply is false if event returns true (meaning reply was submitted)
+    this.showReply = !$event;
+
+    // Simulate server returning new Post record
+    var newComment = new Post();
+    newComment.parentId = this.comment.id;
+    newComment.depth = this.comment.depth + 1;
+    newComment.id = Math.random().toString();
+    newComment.body = 'Test Comment';
+
+    console.log(newComment);
+    
+    if (newComment.depth  == 6) {      
+      // if post coming back is MaxDepth - 1, then force user to enter new thread
+      newComment.mustContinueInNewThread = true;
+    }
+    
+    // push new comment to top of array
+    this.comment.replies.unshift(newComment)
   }
 
-  processClick(threadClick : ThreadClick) {
+  processThreadClick(threadClick : ThreadClick) {
     if (threadClick.id == this.comment.id) {
       this.collapsed = threadClick.shouldHide;
 
@@ -73,7 +101,7 @@ export class ContentComponent implements OnInit {
               x.classList.add('hidden');
               x.classList.add('hidden-by-' + parentId);
             }
-             
+              
             // update count if list contains an element with comment-content-depth-x
             if (x.classList.contains('comment-content-depth-' + i)) {
               numOfChildrenHidden++;

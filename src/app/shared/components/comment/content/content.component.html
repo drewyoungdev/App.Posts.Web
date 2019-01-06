@@ -4,4 +4,5 @@
     <comment-header [isHidden]="collapsed" [author]="comment.author" [points]="comment.points" [createDate]="comment.createDate" [numOfChildrenHidden]="numOfChildrenHidden"></comment-header>
     <comment-body [hidden]="collapsed" [bodyText]="comment.body"></comment-body>
     <comment-footer [hidden]="collapsed" (replyClickedEvent)="replyClicked($event)"></comment-footer>
+    <reply-box [hidden]="collapsed"  *ngIf="showReply" [canCancel]="true" (replyCancelledEvent)="replyCancelled($event)" (replySubmittedEvent)="replySubmitted($event)"></reply-box>
 </div>
