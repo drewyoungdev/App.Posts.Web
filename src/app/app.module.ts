@@ -20,6 +20,7 @@ import { MomentModule } from 'angular2-moment';
 import { NumberSuffixPipe } from './shared/pipes/number-suffix.pipe';
 import { ReplyBoxComponent } from './shared/components/reply-box/reply-box.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MomentModule,
     FormsModule

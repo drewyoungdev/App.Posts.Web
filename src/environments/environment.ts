@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  postsApiBaseUrl: 'http://localhost:5000/api/posts',
   // Need global variable for max depth (or match the one in _variables.scss)
   maxDepth: 6
 };
