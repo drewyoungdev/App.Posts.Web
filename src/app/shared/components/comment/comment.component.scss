@@ -1,6 +1,6 @@
 @import './src/assets/scss/_variables.scss';
 
-@for $i from 0 through ($maxDepth - 1) {
+@for $i from 0 through ($maxDepth) {
     $commentPaddingLeft: ($i + 1)*($threadWidth + $threadMarginLeft);
 
     .#{comment-depth}-#{$i}

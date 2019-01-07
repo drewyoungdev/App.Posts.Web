@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Post } from 'src/app/models/post';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'comment',
@@ -17,6 +18,8 @@ export class CommentComponent implements OnInit {
 
   @Input()
   parentIds: string[];
+
+  maxDepth : number = environment.maxDepth;
 
   isRepliesLoaded: boolean = false;
   

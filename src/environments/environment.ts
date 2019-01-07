@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // Need global variable for max depth (or match the one in _variables.scss)
+  maxDepth: 6
 };
 
 /*

@@ -3,6 +3,7 @@ import { Post } from 'src/app/models/post';
 import { ThreadClickService } from 'src/app/shared/services/thread-click.service';
 import { ThreadClick } from 'src/app/models/threadClick';
 import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'comment-content',
@@ -51,16 +52,11 @@ export class ContentComponent implements OnInit {
     newComment.depth = this.comment.depth + 1;
     newComment.id = Math.random().toString();
     newComment.body = 'Test Comment';
-    
-    // Need global variable for max depth 6 (used twice in this file and once in _variable.scss)
-    // Also need better way of handling continue in new thread...
-    // Server side has it's check, however, how do we stop a client from keep on clicking reply button?
-    // Should all posts that are one level before max depth just be tagged with "continue in new thread" content?
-    // and also have the reply button disabled or removed?
-    // If so, should I remove that check on server side that looks for any additional records after max depth to tag it as must continue?
 
-    if (newComment.depth == 6) {      
-      // if post coming back is MaxDepth - 1, then force user to enter new thread to view post
+    // TODO: fix server side endpoint to accept MaxDepth query param so FE can set it
+    // TODO: fix db and midware to not pick up that additional one-level of replies and stop at MaxDepth + 1
+    if (newComment.depth == environment.maxDepth) {      
+      // if post coming back is maxDepth, then force user to enter new thread to view post
       newComment.mustContinueInNewThread = true;
     }
     
@@ -90,8 +86,8 @@ export class ContentComponent implements OnInit {
     var numOfChildrenHidden = 0;
     while (nextElem != null && !nextElem.classList.contains('comment-depth-' + depth))
     {
-      // hide/show all elements with the same or greater depth (max of 6)
-      for (var i = depth; i <= 6; i++) {
+      // hide/show all elements with the same or greater depth (limited by maxDepth)
+      for (var i = depth; i <= environment.maxDepth; i++) {
         var elementsToToggle = nextElem.querySelectorAll('div.depth-' + i);
 
         elementsToToggle.forEach(x => {
