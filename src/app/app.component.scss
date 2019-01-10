@@ -1,0 +1,74 @@
+@import './src/assets/scss/_variables.scss';
+
+.thread-container { 
+    word-break: break-word;
+    background: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-image: initial;
+    border-radius: 4px;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.thread-main-post { 
+    padding: 8px 0 0 30px;
+    position: relative;
+}
+
+.thread-main-post-reply-box {
+    position: relative;
+    margin: 24px 40px;
+}
+
+.thread-replies-sort { 
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(237, 239, 241);
+    margin: 16px 40px 0px;
+    padding: 0px 16px 4px 0px;
+}
+
+.thread-replies-sort-btn { 
+    color: rgb(124, 124, 124);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 12px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.thread-replies-sort-btn-2 {
+    font-size: 12px;
+    font-weight: 700;
+    color: $primaryColor;
+    letter-spacing: .5px;
+    line-height: 24px;
+    text-transform: uppercase;
+    background-color: inherit;
+    border: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: 4px;
+    padding: 0 4px 1px;
+    width: auto;
+}
+
+.thread-replies-sort-btn-2 > i {
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.thread-replies { 
+    margin: 10px 10px;
+    position: relative;
+    border-radius: 4px;
+    padding: 8px 4px 0px 0px;
+}

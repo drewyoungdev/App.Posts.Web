@@ -21,6 +21,8 @@ import { NumberSuffixPipe } from './shared/pipes/number-suffix.pipe';
 import { ReplyBoxComponent } from './shared/components/reply-box/reply-box.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MainPostComponent } from './shared/components/main-post/main-post.component';
+import { MainPostHeaderComponent } from './shared/components/main-post/main-post-header/main-post-header.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
     ExpandButtonComponent,
     VoteButtonsComponent,
     NumberSuffixPipe,
-    ReplyBoxComponent
+    ReplyBoxComponent,
+    MainPostComponent,
+    MainPostHeaderComponent
   ],
   imports: [
     BrowserModule,
