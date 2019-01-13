@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'sort-dropdown',
@@ -7,7 +8,7 @@ import { Component, OnInit, ViewEncapsulation, Output, EventEmitter } from '@ang
   encapsulation: ViewEncapsulation.None
 })
 export class SortDropdownComponent implements OnInit {
-  selected: string = 'Best';
+  selected: string = environment.defaultSortType;
 
   @Output()
   change: EventEmitter<string> = new EventEmitter<string>();
@@ -15,7 +16,6 @@ export class SortDropdownComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.change.emit(this.selected);
   }
 
   onChange() {

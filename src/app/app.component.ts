@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommentsService } from './shared/services/comments.service';
 import { Post } from './models/post';
 import { MainPost } from './models/mainPost';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -12,31 +13,35 @@ export class AppComponent implements OnInit {
   comments: Post[];
   mainPost: MainPost;
 
+  isServerRunning: boolean = false;
+
   constructor(private commentsService : CommentsService) {
   }
   
   ngOnInit(): void {
+    if (this.isServerRunning) {
+      this.getReplies('1', environment.defaultSortType);
+    }
+    else {
+      this.setMockData();
+    }
   }
 
   // selected sort dropdown option drives what the default criteria will be
   onSortChange($event) {
-    // with running server use following
-    // TODO: add call for 'main post' currently only able to mock it with fake data
-    // this will prevent the ability to add main post replies
-    //this.getReplies('1', $event);
-
-    // toggle data in dev w/o server use following
-    if ($event === 'Best')
-    {
-      this.setMockData();
+    if (this.isServerRunning) {
+      this.getReplies('1', $event);
     }
-    else if ($event === 'Top')
-    {
-      this.reloadReplies();
-    }
-    else
-    {
-      this.comments = [];
+    else {
+      if ($event === 'Best') {
+        this.setMockData();
+      }
+      else if ($event === 'Top') {
+        this.reloadReplies();
+      }
+      else {
+        this.comments = [];
+      }
     }
   }
 
