@@ -1,3 +1,5 @@
+@import './src/assets/scss/_variables.scss';
+
 :host{
     display: flex;
     flex-direction: column; 
@@ -10,7 +12,8 @@
     margin: auto;
     padding: 0 20px 0 20px;
     width: 100%;
-    height: 50px;
+    height: $mainHeaderHeight;
+    z-index: 999;
 
     background: white;
     border-bottom: 1px solid rgb(237, 239, 241);
@@ -31,6 +34,6 @@
     border-color: whitesmoke;
     border-image: initial;
     border-radius: 4px;
-    width: 70%;
+    width: $mainBodyWidth;
     margin: 0 auto;
 }
