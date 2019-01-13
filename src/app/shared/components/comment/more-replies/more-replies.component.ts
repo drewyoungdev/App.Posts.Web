@@ -12,7 +12,7 @@ export class MoreRepliesComponent implements OnInit {
   comment : Post;
 
   @Output()
-  repliesLoadedEvent = new EventEmitter<boolean>();
+  repliesLoadedEvent = new EventEmitter();
   
   showLoadingMessage : boolean = false;
 
@@ -45,6 +45,6 @@ export class MoreRepliesComponent implements OnInit {
     this.comment.replies.push.apply(this.comment.replies, newComments);
 
     // tell parent to destroy component when done
-    this.repliesLoadedEvent.emit(true);
+    this.repliesLoadedEvent.emit();
   }
 }

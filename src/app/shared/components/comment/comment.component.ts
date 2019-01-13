@@ -38,7 +38,7 @@ export class CommentComponent implements OnInit {
     this.parentIds = newArray;
   }
 
-  repliesLoaded($event) {
-    this.isRepliesLoaded = $event;
+  repliesLoaded() {
+    this.isRepliesLoaded = !this.isRepliesLoaded;
   }
 }

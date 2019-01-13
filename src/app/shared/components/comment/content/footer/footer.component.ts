@@ -11,7 +11,7 @@ export class FooterComponent implements OnInit {
   depth : number;
 
   @Output()
-  replyClickedEvent = new EventEmitter<boolean>();
+  replyClickedEvent = new EventEmitter();
 
   maxDepth : number = environment.maxDepth;
 
@@ -24,6 +24,6 @@ export class FooterComponent implements OnInit {
 
   replyOnClick() {
     this.showReply = !this.showReply;
-    this.replyClickedEvent.emit(this.showReply);
+    this.replyClickedEvent.emit();
   }
 }

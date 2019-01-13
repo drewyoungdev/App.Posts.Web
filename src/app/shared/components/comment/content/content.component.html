@@ -3,6 +3,6 @@
     <comment-expand-button [hidden]="!collapsed" [currentId]="comment.id" [depth]="comment.depth"></comment-expand-button>
     <comment-header [isHidden]="collapsed" [author]="comment.author" [points]="comment.score" [createDate]="comment.createDate" [numOfChildrenHidden]="numOfChildrenHidden"></comment-header>
     <comment-body [hidden]="collapsed" [bodyText]="comment.body"></comment-body>
-    <comment-footer [hidden]="collapsed" [depth]="comment.depth" (replyClickedEvent)="replyClicked($event)"></comment-footer>
-    <reply-box [hidden]="collapsed"  *ngIf="showReply" [canCancel]="true" (replyCancelledEvent)="replyCancelled($event)" (replySubmittedEvent)="replySubmitted($event)"></reply-box>
+    <comment-footer [hidden]="collapsed" [depth]="comment.depth" (replyClickedEvent)="replyClicked()"></comment-footer>
+    <reply-box [hidden]="collapsed"  *ngIf="showReply" [canCancel]="true" (replyCancelledEvent)="replyCancelled()" (replySubmittedEvent)="replySubmitted()"></reply-box>
 </div>

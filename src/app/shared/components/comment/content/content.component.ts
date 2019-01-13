@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { ThreadClickService } from 'src/app/shared/services/thread-click.service';
 import { ThreadClick } from 'src/app/models/threadClick';
@@ -16,9 +16,6 @@ export class ContentComponent implements OnInit {
   @Input()
   comment : Post;
 
-  @Output()
-  replyClickedEvent = new EventEmitter<boolean>()
-
   collapsed : boolean = false;
   numOfChildrenHidden : number;
   showReply : boolean = false;
@@ -33,18 +30,18 @@ export class ContentComponent implements OnInit {
     });
   }
 
-  replyClicked($event) {
-    this.showReply = $event;
+  replyClicked() {
+    this.showReply = !this.showReply;
   }
   
-  replyCancelled($event) {
+  replyCancelled() {
     // show reply is false if event returns true (meaning reply was cancelled)
-    this.showReply = !$event;
+    this.showReply = !this.showReply;
   }
   
-  replySubmitted($event) {
+  replySubmitted() {
     // show reply is false if event returns true (meaning reply was submitted)
-    this.showReply = !$event;
+    this.showReply = !this.showReply;
 
     // Simulate server returning new Post record
     var newComment = new Post();

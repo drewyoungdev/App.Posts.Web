@@ -11,10 +11,10 @@ export class ReplyBoxComponent implements OnInit {
   canCancel : boolean;
 
   @Output()
-  replyCancelledEvent = new EventEmitter<boolean>();
+  replyCancelledEvent = new EventEmitter();
 
   @Output()
-  replySubmittedEvent = new EventEmitter<boolean>();
+  replySubmittedEvent = new EventEmitter();
 
   replyText : string;
   isTextAreaEmpty : boolean = true;
@@ -35,10 +35,10 @@ export class ReplyBoxComponent implements OnInit {
   }
 
   cancelOnClick() {
-    this.replyCancelledEvent.emit(true);
+    this.replyCancelledEvent.emit();
   }
 
   replyOnClick() {
-    this.replySubmittedEvent.emit(true);
+    this.replySubmittedEvent.emit();
   }
 }

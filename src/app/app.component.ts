@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
       });
   };
   
-  replySubmitted($event) {
+  replySubmitted() {
     // Simulate server returning new Post record
     var newComment = new Post();
     newComment.parentId = this.mainPost.id;

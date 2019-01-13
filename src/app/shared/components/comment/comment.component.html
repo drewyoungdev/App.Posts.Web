@@ -9,7 +9,7 @@
     <div class="comment-more-replies-depth-{{comment.depth}}">
         <threadlines [previousParentIds]="parentIds" [includeNewThread]="false"></threadlines>   
         <div *ngIf="!isRepliesLoaded && comment.numOfHiddenReplies > 0">
-            <more-replies [comment]="comment" (repliesLoadedEvent)="repliesLoaded($event)"></more-replies>  
+            <more-replies [comment]="comment" (repliesLoadedEvent)="repliesLoaded()"></more-replies>  
         </div>
         <div *ngIf="comment.mustContinueInNewThread">
             <!-- move into it's own component -->
