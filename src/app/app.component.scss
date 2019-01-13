@@ -41,10 +41,10 @@
     letter-spacing: .5px;
     line-height: 12px;
     text-transform: uppercase;
-    cursor: pointer;
 }
-
-.thread-replies-sort-btn-2 {
+// Wrap ng-select implementation in our own custom component with custom styling and exposed inputs/outputs
+// Too get these styles to apply properly, ViewEncapsulation had to be set to None
+.ng-select.sort-dropdown {
     font-size: 12px;
     font-weight: 700;
     color: $primaryColor;
@@ -52,19 +52,44 @@
     line-height: 24px;
     text-transform: uppercase;
     background-color: inherit;
-    border: none;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+
     margin-left: 4px;
     padding: 0 4px 1px;
     width: auto;
 }
-
-.thread-replies-sort-btn-2 > i {
-    margin-left: 5px;
-    margin-top: 5px;
+.ng-select.sort-dropdown .ng-dropdown-panel {
+    min-width: 140px;
+    border-color: rgb(237, 239, 241);
+    border-radius: 4px;
+    box-shadow: rgba(28, 28, 28, 0.2) 0px 2px 4px 0px;
 }
+.ng-select.sort-dropdown .ng-select-container  {
+    min-height: 0px;
+    border: none;
+    color: $primaryColor;
+    box-shadow: none;
+}
+.ng-select.sort-dropdown .ng-option {
+    color: $blackTint50;
+}
+.ng-select.sort-dropdown .ng-option {
+    border-style: solid;
+    border-color: rgb(237, 239, 241);
+}
+.ng-select.sort-dropdown .ng-option.ng-option-selected {
+    color: $primaryColor;
+    background: none;
+}
+.ng-select.sort-dropdown .ng-option.ng-option-marked {
+    background: $primaryColorTint5;
+}
+// .ng-select.sort-dropdown .ng-select-container .ng-value-container .ng-input>input{
+//     outline: 0 !important;
+// }
+// disable focus
 
 .thread-replies { 
     margin: 10px 10px;

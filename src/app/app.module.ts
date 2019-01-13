@@ -19,6 +19,7 @@ import { VoteButtonsComponent } from './shared/components/comment/content/vote-b
 import { MomentModule } from 'angular2-moment';
 import { NumberSuffixPipe } from './shared/pipes/number-suffix.pipe';
 import { ReplyBoxComponent } from './shared/components/reply-box/reply-box.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainPostComponent } from './shared/components/main-post/main-post.component';
@@ -46,6 +47,7 @@ import { MainPostHeaderComponent } from './shared/components/main-post/main-post
     HttpClientModule,
     AppRoutingModule,
     MomentModule,
+    NgSelectModule,
     FormsModule
   ],
   providers: [],

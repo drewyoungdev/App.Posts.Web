@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommentsService } from './shared/services/comments.service';
 import { Post } from './models/post';
 import { MainPost } from './models/mainPost';
@@ -6,11 +6,13 @@ import { MainPost } from './models/mainPost';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
   comments: Post[];
   mainPost: MainPost;
+  selected: string = 'Best';
 
   constructor(private commentsService : CommentsService) {
   }
