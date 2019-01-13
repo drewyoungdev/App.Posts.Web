@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MainPostComponent } from './shared/components/main-post/main-post.component';
 import { MainPostHeaderComponent } from './shared/components/main-post/main-post-header/main-post-header.component';
+import { SortDropdownComponent } from './shared/components/dropdowns/sort-dropdown/sort-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MainPostHeaderComponent } from './shared/components/main-post/main-post
     NumberSuffixPipe,
     ReplyBoxComponent,
     MainPostComponent,
-    MainPostHeaderComponent
+    MainPostHeaderComponent,
+    SortDropdownComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommentsService } from './shared/services/comments.service';
 import { Post } from './models/post';
 import { MainPost } from './models/mainPost';
@@ -6,24 +6,42 @@ import { MainPost } from './models/mainPost';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   comments: Post[];
   mainPost: MainPost;
-  selected: string = 'Best';
 
   constructor(private commentsService : CommentsService) {
   }
   
   ngOnInit(): void {
-    //this.getReplies('10');
-    this.setMockData();
   }
 
-  private getReplies(parentId: string) {
-    this.commentsService.getReplies(parentId, 'best').subscribe(
+  // selected sort dropdown option drives what the default criteria will be
+  onSortChange($event) {
+    // with running server use following
+    // TODO: add call for 'main post' currently only able to mock it with fake data
+    // this will prevent the ability to add main post replies
+    //this.getReplies('1', $event);
+
+    // toggle data in dev w/o server use following
+    if ($event === 'Best')
+    {
+      this.setMockData();
+    }
+    else if ($event === 'Top')
+    {
+      this.reloadReplies();
+    }
+    else
+    {
+      this.comments = [];
+    }
+  }
+
+  private getReplies(parentId: string, sortType: string) {
+    this.commentsService.getReplies(parentId, sortType).subscribe(
       data => {
         this.comments = data;
       }, 
@@ -58,6 +76,23 @@ export class AppComponent implements OnInit {
     );
 
     console.log(this.comments);
+  }
+  
+  private reloadReplies() {
+    this.comments = [    
+      {
+        depth: 0,
+        id: '2',
+        parentId: '3',
+        author: 'test_this_out12',
+        score: -23,
+        body: 'That is good!',
+        createDate: '2019-01-04T04:25:11',
+        numOfHiddenReplies: 0,
+        mustContinueInNewThread: false,
+        replies: []
+      }
+    ]
   }
 
   private setMockData() {

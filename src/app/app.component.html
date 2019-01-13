@@ -7,13 +7,7 @@
         <div class="thread-replies-sort-btn">
             Sort By
         </div>
-        <ng-select class="sort-dropdown" 
-            [(ngModel)]="selected" 
-            [items]="['Best', 'Top', 'Controversial']" 
-            [clearable]="false" 
-            [searchable]="false"
-            [markFirst]="false">
-        </ng-select>
+        <sort-dropdown (change)="onSortChange($event)"></sort-dropdown>
     </div>
     <div class="thread-replies">
         <div *ngFor="let comment of comments">

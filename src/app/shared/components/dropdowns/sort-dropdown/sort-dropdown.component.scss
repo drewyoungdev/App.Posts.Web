@@ -1,0 +1,42 @@
+@import './src/assets/scss/_variables.scss';
+
+// Too get these styles to overwrite properly, ViewEncapsulation had to be set to None
+.ng-select.sort-dropdown {
+    font-size: 12px;
+    font-weight: 700;
+    color: $primaryColor;
+    letter-spacing: .5px;
+    line-height: 24px;
+    text-transform: uppercase;
+    background-color: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: 4px;
+    padding: 0 4px 1px;
+    width: auto;
+}
+.ng-select.sort-dropdown .ng-select-container  {
+    min-height: 0px;
+    border: none;
+    color: $primaryColor;
+    box-shadow: none;
+}
+.ng-select.sort-dropdown .ng-dropdown-panel {
+    min-width: 140px;
+    border-color: rgb(237, 239, 241);
+    border-radius: 4px;
+    box-shadow: rgba(28, 28, 28, 0.2) 0px 2px 4px 0px;
+}
+.ng-select.sort-dropdown .ng-option {
+    color: $blackTint50;
+    border-style: solid;
+    border-color: rgb(237, 239, 241);
+}
+.ng-select.sort-dropdown .ng-option.ng-option-selected {
+    color: $primaryColor;
+    background: none;
+}
+.ng-select.sort-dropdown .ng-option.ng-option-marked {
+    background: $primaryColorTint5;
+}
