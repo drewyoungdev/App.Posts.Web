@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommentsService } from './shared/services/comments.service';
 import { Post } from './models/post';
 import { MainPost } from './models/mainPost';
@@ -14,15 +14,7 @@ export class AppComponent implements OnInit {
   mainPost: MainPost;
 
   isServerRunning: boolean = false;
-  
-  @ViewChild('mainPost') 
-  elementView: ElementRef;
 
-  mainPostHeight: number;
-  fixed: boolean = false; 
-
-  // TODO: Implement scrollable sticky header for main thread
-  // https://medium.com/@EliaPalme/angular2-sticky-header-scroll-then-fix-ab4c54fada1f
   // TODO: Implement hover event on thread to display parent thread info if it is not in viewport
   // https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
   // TODO: Don't reset position when loading new content
@@ -35,20 +27,6 @@ export class AppComponent implements OnInit {
     }
     else {
       this.setMockData();
-    }
-  }
-
-  ngAfterViewInit() {
-    this.mainPostHeight = this.elementView.nativeElement.offsetHeight;
-  }
-
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll() {
-    var mainPostHeight = this.mainPostHeight;
-    if (window.pageYOffset > mainPostHeight) {
-      this.fixed = true;
-    } else {
-      this.fixed = false;
     }
   }
 
