@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { CommentsService } from './shared/services/comments.service';
 import { Post } from './models/post';
 import { MainPost } from './models/mainPost';
@@ -14,7 +14,18 @@ export class AppComponent implements OnInit {
   mainPost: MainPost;
 
   isServerRunning: boolean = false;
+  
+  @ViewChild('mainPost') 
+  elementView: ElementRef;
 
+  mainPostHeight: number;
+  fixed: boolean = false; 
+
+  // TODO: Implement scrollable sticky header for main thread
+  // https://medium.com/@EliaPalme/angular2-sticky-header-scroll-then-fix-ab4c54fada1f
+  // TODO: Implement hover event on thread to display parent thread info if it is not in viewport
+  // https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+  // TODO: Don't reset position when loading new content
   constructor(private commentsService : CommentsService) {
   }
   
@@ -24,6 +35,20 @@ export class AppComponent implements OnInit {
     }
     else {
       this.setMockData();
+    }
+  }
+
+  ngAfterViewInit() {
+    this.mainPostHeight = this.elementView.nativeElement.offsetHeight;
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    var mainPostHeight = this.mainPostHeight;
+    if (window.pageYOffset > mainPostHeight) {
+      this.fixed = true;
+    } else {
+      this.fixed = false;
     }
   }
 
@@ -79,8 +104,6 @@ export class AppComponent implements OnInit {
         replies: []
       }
     );
-
-    console.log(this.comments);
   }
   
   private reloadReplies() {
@@ -150,6 +173,45 @@ export class AppComponent implements OnInit {
               ]
             }
           ],    
+        },
+        {
+          depth: 0,
+          id: '54',
+          parentId: '123',
+          author: 'userNumeroUno12',
+          score: 2332,
+          body: 'Lorem ipsum dolor sit amet, ne vis stet interpretaris, vis vocibus tacimates delicatissimi ad. Per viderer equidem ex. Tale eirmod vis et, vix ad iudicabit mediocritatem, eos ad maiorum deleniti molestiae. Ea vix sumo consul, at vim dicit affert impedit, ea nec wisi ignota liberavisse. Dolores noluisse instructior an pri, timeam principes no has. An sit inani viris accumsan.',
+          createDate: '2019-01-03T23:12:11',
+          numOfHiddenReplies: 6,
+          mustContinueInNewThread: false,
+          replies: [
+          ]
+        },
+        {
+          depth: 0,
+          id: '33',
+          parentId: '123',
+          author: 'userNumeroUno12',
+          score: 2332,
+          body: 'Lorem ipsum dolor sit amet, ne vis stet interpretaris, vis vocibus tacimates delicatissimi ad. Per viderer equidem ex. Tale eirmod vis et, vix ad iudicabit mediocritatem, eos ad maiorum deleniti molestiae. Ea vix sumo consul, at vim dicit affert impedit, ea nec wisi ignota liberavisse. Dolores noluisse instructior an pri, timeam principes no has. An sit inani viris accumsan.',
+          createDate: '2019-01-03T23:12:11',
+          numOfHiddenReplies: 6,
+          mustContinueInNewThread: false,
+          replies: [
+          ]
+        },
+        {
+          depth: 0,
+          id: '23',
+          parentId: '123',
+          author: 'userNumeroUno12',
+          score: 2332,
+          body: 'Lorem ipsum dolor sit amet, ne vis stet interpretaris, vis vocibus tacimates delicatissimi ad. Per viderer equidem ex. Tale eirmod vis et, vix ad iudicabit mediocritatem, eos ad maiorum deleniti molestiae. Ea vix sumo consul, at vim dicit affert impedit, ea nec wisi ignota liberavisse. Dolores noluisse instructior an pri, timeam principes no has. An sit inani viris accumsan.',
+          createDate: '2019-01-03T23:12:11',
+          numOfHiddenReplies: 6,
+          mustContinueInNewThread: false,
+          replies: [
+          ]
         }
       ];
   }
