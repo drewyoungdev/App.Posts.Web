@@ -26,6 +26,9 @@ import { MainPostComponent } from './shared/components/main-post/main-post.compo
 import { MainPostHeaderComponent } from './shared/components/main-post/main-post-header/main-post-header.component';
 import { SortDropdownComponent } from './shared/components/dropdowns/sort-dropdown/sort-dropdown.component';
 
+// Will eventually be the main module imported
+import { FrameworkModule } from './core/framework/framework.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +53,8 @@ import { SortDropdownComponent } from './shared/components/dropdowns/sort-dropdo
     AppRoutingModule,
     MomentModule,
     NgSelectModule,
-    FormsModule
+    FormsModule,
+    FrameworkModule
   ],
   providers: [],
   bootstrap: [AppComponent]
