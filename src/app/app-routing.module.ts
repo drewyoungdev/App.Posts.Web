@@ -7,6 +7,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: './modules/home/home.module#HomeModule'
   },
+  {
+    path: 'comments',
+    loadChildren: './modules/post-with-replies/post-with-replies.module#PostWithRepliesModule'
+  },
   { path: '**', redirectTo: 'home' } // eventually change to a not-found page
 ];
 
