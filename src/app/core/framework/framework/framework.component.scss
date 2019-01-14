@@ -1,0 +1,18 @@
+@import './src/assets/scss/_variables.scss';
+
+.spacer{
+    width: 100%;
+    height: 75px;
+}
+
+.body {
+    word-break: break-word;
+    background: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-image: initial;
+    border-radius: 4px;
+    width: $mainBodyWidth;
+    margin: 0 auto;
+}

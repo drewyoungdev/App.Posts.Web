@@ -1,35 +1,60 @@
-<div class="main-post">
-  <div class="main-post-content">
-    <div class="main-post-content-margin">
-      <main-post-header></main-post-header>
-    </div>
-    <div class="main-post-content-margin">
-      <h2 class="main-post-title">This is the title of this current thread!</h2>
-    </div>
-    <div class="main-post-body">
-      This is the rest of the text for the main post body.
-      This is the rest of the text for the main post body.
-      This is the rest of the text for the main post body.
-      This is the rest of the text for the main post body.
-      This is the rest of the text for the main post body.
-    </div>
-    <div class="main-post-content-margin">
-      <comment-footer></comment-footer>
+<div (scroll)="onWindowScroll($event)">
+  <div *ngIf="isStickied" class="sticky-header">
+    <div class="sticky-header-content">
+        <div class="sticky-header-content-buttons">
+          <button>
+              <div class="comment-btn-icon comment-vote-up">
+                  <i class="fa fa-arrow-up"></i>
+              </div>
+          </button>
+          <div class="sticky-header-content-score">
+            21K
+          </div>
+          <button> 
+              <div class="comment-btn-icon comment-vote-down">
+                  <i class="fa fa-arrow-down"></i>
+              </div>
+          </button>
+        </div>
+        <div class="sticky-header-content-title">
+          <i class="fa fa-file-text sticky-header-content-title-icon"></i>
+          This is the title of this current thread!
+        </div>
     </div>
   </div>
-  <div class="main-post-btns">
-    <button>
-        <div class="comment-btn-icon comment-vote-up">
-            <i class="fa fa-arrow-up"></i>
-        </div>
-    </button>
-    <div class="main-post-score">
-      21K
+  <div class="main-post" #mainPost>
+    <div class="main-post-content">
+      <div class="main-post-content-margin">
+        <main-post-header></main-post-header>
+      </div>
+      <div class="main-post-content-margin">
+        <h2 class="main-post-title">This is the title of this current thread!</h2>
+      </div>
+      <div class="main-post-body">
+        This is the rest of the text for the main post body.
+        This is the rest of the text for the main post body.
+        This is the rest of the text for the main post body.
+        This is the rest of the text for the main post body.
+        This is the rest of the text for the main post body.
+      </div>
+      <div class="main-post-content-margin">
+        <comment-footer></comment-footer>
+      </div>
     </div>
-    <button> 
-        <div class="comment-btn-icon comment-vote-down">
-            <i class="fa fa-arrow-down"></i>
-        </div>
-    </button>
+    <div class="main-post-btns">
+      <button>
+          <div class="comment-btn-icon comment-vote-up">
+              <i class="fa fa-arrow-up"></i>
+          </div>
+      </button>
+      <div class="main-post-score">
+        21K
+      </div>
+      <button> 
+          <div class="comment-btn-icon comment-vote-down">
+              <i class="fa fa-arrow-down"></i>
+          </div>
+      </button>
+    </div>
   </div>
 </div>

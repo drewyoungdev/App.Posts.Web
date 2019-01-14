@@ -1,3 +1,63 @@
+@import './src/assets/scss/_variables.scss';
+
+.sticky-header {
+    box-sizing: border-box;
+    width: $mainBodyWidth;
+    position: fixed;
+    z-index: 70;
+    height: $secondaryHeaderHeight;
+    top: $mainHeaderHeight;
+    background: rgb(3, 3, 3);
+
+    display: flex;
+    align-items: center;
+}
+.sticky-header-content {
+    display: flex;
+    align-items: center; 
+    color: rgb(215, 218, 220);
+}
+.sticky-header-content-buttons {
+    fill: inherit;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 8px;
+    padding: 0px 2px;
+}
+.sticky-header-content-buttons button {
+    width: 24px;
+}
+.sticky-header-content-buttons:after {
+    border-right: 1px solid #343536;
+    content: "";
+    display: inline-block;
+    height: 16px;
+    vertical-align: text-bottom;
+    width: 0;
+    margin: 0 8px;
+}
+.sticky-header-content-score {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+    text-align: center;
+    width: 32px;
+    margin: 0px 1px;
+}
+.sticky-header-content-title-icon {
+    color: #818384;
+    font-size: 16px;
+    margin-right: 8px;
+}
+.sticky-header-content-title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    display: inline-flex;
+    min-width: 0;
+}
+
 .main-post {
     padding: 8px 0 0 40px;
     position: relative;

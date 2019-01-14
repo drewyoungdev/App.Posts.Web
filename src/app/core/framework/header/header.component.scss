@@ -1,0 +1,33 @@
+@import './src/assets/scss/_variables.scss';
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: auto;
+    padding: 0 20px 0 20px;
+    width: 100%;
+    height: $mainHeaderHeight;
+    z-index: 999;
+
+    display: flex;
+    align-items: center;
+
+    background: white;
+    border-bottom: 1px solid rgb(237, 239, 241);
+}
+.main-header-search-tools {
+    display: flex;
+    align-items: center; 
+}
+.main-header-item {
+    fill: inherit;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 8px;
+    padding: 0px 2px;
+}
+.main-header-item i {
+    color: #f40;
+}
