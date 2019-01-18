@@ -14,6 +14,7 @@ export class PostWithRepliesComponent implements OnInit {
   id: string;
   mainPost: MainPost;
   comments: Post[];
+  commentsLoading: boolean;
 
   // TODO: Implement hover event on thread to display parent thread info if it is not in viewport
   // https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
@@ -45,8 +46,10 @@ export class PostWithRepliesComponent implements OnInit {
   }
 
   private getReplies(parentId: string, sortType: string) {
+    this.commentsLoading = true;
     this.commentsService.getReplies(parentId, sortType).subscribe(
       data => {
+        this.commentsLoading = false;
         this.comments = data;
       }, 
       error => {

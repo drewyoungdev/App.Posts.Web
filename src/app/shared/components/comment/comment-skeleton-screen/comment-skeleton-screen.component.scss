@@ -1,0 +1,68 @@
+@import './src/assets/scss/_variables.scss';
+
+$commentPaddingLeft: ($threadWidth + $threadMarginLeft);
+
+.comment-skeleton-screen {
+    padding-left: $commentPaddingLeft;
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    overflow: visible;
+}
+
+.comment-skeleton-screen-btn {
+    position: absolute;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    fill: inherit;
+    flex-direction: column;
+    width: $commentBtnWidth;
+    height: $commentBtnHeight;
+    text-align: center;
+    z-index: 3;
+    margin: 0 0 0 $commentBtnMarginLeft;
+}
+
+.comment-skeleton-screen-content {
+    box-sizing: border-box;
+    opacity: 1;
+    margin-left: $commentContentMarginLeft;
+    padding-left: $commentContentPaddingLeft;
+    padding-top: $commentContentPaddingTop;
+    max-width: 800px;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 4px;
+}
+
+.comment-skeleton-screen-header,
+.comment-skeleton-screen-body,
+.comment-skeleton-screen-footer {
+    margin: 4px 0px 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 4px;
+    background-color: whitesmoke;
+}
+
+.comment-skeleton-screen-header {
+    width: 250px;
+    height: 20px;
+}
+
+.comment-skeleton-screen-body {
+    padding: 8px 0;
+    width: 100%;
+    height: 100px;
+}
+
+.comment-skeleton-screen-footer {
+    width: 200px;
+    height: 20px;
+}

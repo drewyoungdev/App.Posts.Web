@@ -4,6 +4,7 @@ import { Post } from 'src/app/models/post';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { MainPost } from 'src/app/models/mainPost';
+import { delay } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,6 @@ export class CommentsService {
   getReplies(parentId: string, sortType: string): Observable<Post[]> {
     return (this.isServerRunning ?
     this.httpClient.get<Post[]>(`${this.postsApiBaseUrl}/${parentId}/replies/${sortType}?maxDepth=${this.maxDepth}`) :
-    this.httpClient.get<Post[]>(`${this.configUrl}/comments.json`));
+    this.httpClient.get<Post[]>(`${this.configUrl}/comments.json`).pipe(delay(2000)));
   }
 }

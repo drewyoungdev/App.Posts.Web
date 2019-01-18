@@ -10,6 +10,11 @@
         <sort-dropdown (change)="onSortChange($event)"></sort-dropdown>
     </div>
     <div class="thread-replies">
+        <div *ngIf="commentsLoading">
+            <div *ngFor="let number of [1,2,3,4]">
+                <comment-skeleton-screen></comment-skeleton-screen>
+            </div>
+        </div>
         <div *ngFor="let comment of comments">
             <comment [previousParentIds]="[]" [comment]="comment"></comment>
         </div>

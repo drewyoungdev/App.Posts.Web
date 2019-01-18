@@ -16,6 +16,7 @@ import { VoteButtonsComponent } from './content/vote-buttons/vote-buttons.compon
 import { NumberSuffixPipe } from '../../pipes/number-suffix.pipe';
 import { ReplyBoxComponent } from '../reply-box/reply-box.component';
 import { SortDropdownComponent } from '../dropdowns/sort-dropdown/sort-dropdown.component';
+import { CommentSkeletonScreenComponent } from './comment-skeleton-screen/comment-skeleton-screen.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { SortDropdownComponent } from '../dropdowns/sort-dropdown/sort-dropdown.
         VoteButtonsComponent,
         NumberSuffixPipe,
         ReplyBoxComponent,
-        SortDropdownComponent
+        SortDropdownComponent,
+        CommentSkeletonScreenComponent
     ],
     imports: [
         CommonModule,
@@ -40,6 +42,7 @@ import { SortDropdownComponent } from '../dropdowns/sort-dropdown/sort-dropdown.
     ],
     exports: [
         CommentComponent,
+        CommentSkeletonScreenComponent,
         // have an overall SharedModule to contain these components
         ReplyBoxComponent,
         SortDropdownComponent
