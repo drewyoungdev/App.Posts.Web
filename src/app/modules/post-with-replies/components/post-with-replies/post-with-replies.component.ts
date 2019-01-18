@@ -23,16 +23,15 @@ export class PostWithRepliesComponent implements OnInit {
   
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      console.log(params.get('id'));
       this.id = params.get('id');
     });
 
-    this.getMainPost('1');
-    this.getReplies('1', environment.defaultSortType);
+    this.getMainPost(this.id);
+    this.getReplies(this.id, environment.defaultSortType);
   }
 
   onSortChange($event) {
-    this.getReplies('1', $event);
+    this.getReplies(this.id, $event);
   }
 
   private getMainPost(id: string) {

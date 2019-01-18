@@ -18,6 +18,11 @@ button {
     cursor: pointer;
     padding: initial;
 }
+.comment-btn-icon {
+    cursor: pointer;
+    color: rgb(135, 138, 140);
+    border-radius: 2px;
+}
 .comment-vote-up:hover {
     color: orangered;
 }
