@@ -9,6 +9,9 @@ import { Post } from 'src/app/models/post';
 export class MainPostComponent implements OnInit {
   @Input()
   comment : Post;
+  
+  @Input()
+  displayStickyHeader: boolean = false;
 
   @ViewChild('mainPost') 
   elementView: ElementRef;
@@ -27,11 +30,14 @@ export class MainPostComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    var mainPostHeight = this.mainPostHeight;
-    if (window.pageYOffset > mainPostHeight) {
-      this.isStickied = true;
-    } else {
-      this.isStickied = false;
+    if (this.displayStickyHeader)
+    {
+      var mainPostHeight = this.mainPostHeight;
+      if (window.pageYOffset > mainPostHeight) {
+        this.isStickied = true;
+      } else {
+        this.isStickied = false;
+      }
     }
   }
 }
