@@ -1,5 +1,12 @@
 <div class="main-feed-container">
-    <div *ngFor="let post of posts">
+    <div *ngIf="mainFeedLoading">
+        <div *ngFor="let number of [1,2,3,4]">
+            <div class="main-feed-card">
+                <main-post-skeleton-screen></main-post-skeleton-screen>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let mainPost of mainFeed">
         <div [routerLink]="['/comments', 1]" class="main-feed-card">
             <main-post></main-post>
         </div>

@@ -18,6 +18,12 @@ export class CommentsService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getMainFeed(sortType: string): Observable<MainPost[]> {
+    return (this.isServerRunning ? 
+    this.httpClient.get<MainPost[]>(`${this.postsApiBaseUrl}/all/${sortType}`) :
+    this.httpClient.get<MainPost[]>(`${this.configUrl}/mainFeed.json`).pipe(delay(2000)));
+  }
+
   getMainPost(id: string): Observable<MainPost> {
     return (this.isServerRunning ? 
     this.httpClient.get<MainPost>(`${this.postsApiBaseUrl}/${id}`) :

@@ -19,6 +19,12 @@ export class PostWithRepliesComponent implements OnInit {
   // TODO: Implement hover event on thread to display parent thread info if it is not in viewport
   // https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
   // TODO: Don't reset position when loading new content
+  // TODO: Add toast messaging for errors
+  // https://www.npmjs.com/package/angular-notifier
+  // TODO: How to handle multiple subscriptions
+  // TODO: Update main-post to use actual data
+  // TODO: Update to allow actual POST of data to db
+  // TODO: Tooltips and ability to display user specific information
   constructor(private route: ActivatedRoute, private commentsService: CommentsService) {
   }
   
@@ -36,6 +42,7 @@ export class PostWithRepliesComponent implements OnInit {
   }
 
   private getMainPost(id: string) {
+    // should subscribe to the same main post that was loaded on home
     this.commentsService.getMainPost(id).subscribe(
       data => {
         this.mainPost = data;
@@ -53,6 +60,7 @@ export class PostWithRepliesComponent implements OnInit {
         this.comments = data;
       }, 
       error => {
+        this.commentsLoading = false;
         console.log(error);
       });
   };
