@@ -11,7 +11,6 @@ import { CommentsService } from 'src/app/core/http/comments.service';
 // TODO: Add secondary table for main-post attributes (title, subreddit, image, link)
 // TODO: Allow home to toggle main-post view for card/panel options
 // TODO: Link main feed and post-with-replies component to same subscription for main-post
-// TODO: Refactor skeleton pages to re-use css
 export class HomeComponent implements OnInit {
   mainFeed: MainPost[] = new Array<MainPost>();
   mainFeedLoading: boolean;

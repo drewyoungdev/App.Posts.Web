@@ -19,6 +19,8 @@ export class PostWithRepliesComponent implements OnInit {
   // TODO: Implement hover event on thread to display parent thread info if it is not in viewport
   // https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
   // TODO: Don't reset position when loading new content
+  // TODO: Add toast messaging for errors
+  // https://www.npmjs.com/package/angular-notifier
   // TODO: How to handle multiple subscriptions
   // TODO: Update main-post to use actual data
   // TODO: Update to allow actual POST of data to db
