@@ -1,7 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
+
+// https://ng-select.github.io/ng-select#/data-sources
 @import "~@ng-select/ng-select/themes/default.theme.css";
+
+// https://artemsky.github.io/ng-snotify/documentation/
+@import "~ng-snotify/styles/simple";
+$snotify-width: 600px;
+// Why won't this overwrite..?
+.snotify-centerBottom  {
+    // left: calc(50% + $snotify-width/2);
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+.snotify { 
+    width: $snotify-width;
+}
+.snotify-simple { 
+    border-radius: 5px;
+    border: 1px solid silver;
+    border-left: 15px solid dodgerblue;
+}
 
 * {
     font-family: 'Roboto', sans-serif;
@@ -10,7 +32,6 @@ $fa-font-path: "~font-awesome/fonts";
 html {
     background: #dae0e6;
 }
-
 button {
     background: transparent;
     border: none;
@@ -29,7 +50,6 @@ button {
 .comment-vote-down:hover {
     color: cornflowerblue;
 }
-
 .hidden {
     display: none !important;
 }

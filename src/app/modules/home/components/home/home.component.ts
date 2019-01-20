@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainPost } from 'src/app/models/mainPost';
 import { CommentsService } from 'src/app/core/http/comments.service';
+import { SnotifyService } from 'ng-snotify';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,12 @@ import { CommentsService } from 'src/app/core/http/comments.service';
 // TODO: Add secondary table for main-post attributes (title, subreddit, image, link)
 // TODO: Allow home to toggle main-post view for card/panel options
 // TODO: Link main feed and post-with-replies component to same subscription for main-post
+// TODO: Refactor skeleton pages to re-use css
 export class HomeComponent implements OnInit {
   mainFeed: MainPost[] = new Array<MainPost>();
   mainFeedLoading: boolean;
 
-  constructor(private commentsService: CommentsService) {
+  constructor(private commentsService: CommentsService, private notifyService: SnotifyService) {
   }
   
   ngOnInit(): void {
@@ -28,11 +30,24 @@ export class HomeComponent implements OnInit {
     this.commentsService.getMainFeed(sortType).subscribe(
       data => {
         this.mainFeedLoading = false;
+        this.notifyService.html(`<div class="snotifyToast__body"><i>Html</i> <b>toast</b> <u>content</u></div> `, {
+          timeout: 0,
+          showProgressBar: false,
+          closeOnClick: true,
+          position: "centerBottom",
+          buttons: [          
+            {text: 'X', action: () => this.notificationClick(), bold: false},
+          ]
+        });
         this.mainFeed = data;
       }, 
       error => {
         this.mainFeedLoading = false;
         console.log(error);
       });
+  }
+
+  private notificationClick() {
+    console.log('clicked!');
   }
 }
