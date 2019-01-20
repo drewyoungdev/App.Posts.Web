@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainPost } from 'src/app/models/mainPost';
 import { CommentsService } from 'src/app/core/http/comments.service';
-import { SnotifyService } from 'ng-snotify';
+import { SnotifyService, SnotifyToast } from 'ng-snotify';
 
 @Component({
   selector: 'app-home',
@@ -30,13 +30,17 @@ export class HomeComponent implements OnInit {
     this.commentsService.getMainFeed(sortType).subscribe(
       data => {
         this.mainFeedLoading = false;
-        this.notifyService.html(`<div class="snotifyToast__body"><i>Html</i> <b>toast</b> <u>content</u></div> `, {
+        this.notifyService.html(
+          `
+            <div class="snotifyToast__body"><i>Html</i> <b>toast</b> <u>content</u></div>
+          `, {
           timeout: 0,
           showProgressBar: false,
-          closeOnClick: true,
+          closeOnClick: false,
           position: "centerBottom",
-          buttons: [          
-            {text: 'X', action: () => this.notificationClick(), bold: false},
+          buttons: [
+            { text: 'Undo', action: (toast) => this.notificationClick(toast), bold: true },
+            { text: 'Close', action: (toast) => {console.log('Clicked: Later'); this.notifyService.remove(toast.id); } , bold: true },
           ]
         });
         this.mainFeed = data;
@@ -47,7 +51,8 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  private notificationClick() {
+  private notificationClick(toast: SnotifyToast) {
     console.log('clicked!');
+    this.notifyService.remove(toast.id);
   }
 }
