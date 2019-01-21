@@ -34,6 +34,7 @@ $snotify-color-error: #ff381e;
 .snotifyToast {
     display: flex;
     align-items: center;
+    cursor: default;
 }
 .snotifyToast__inner {
     flex-grow: 1

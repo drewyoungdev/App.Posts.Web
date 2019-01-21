@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainPost } from 'src/app/models/mainPost';
 import { CommentsService } from 'src/app/core/http/comments.service';
-import { NotificationService } from 'src/app/core/services/notification.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +16,7 @@ export class HomeComponent implements OnInit {
   mainFeed: MainPost[] = new Array<MainPost>();
   mainFeedLoading: boolean;
 
-  constructor(private commentsService: CommentsService, private notificationService: NotificationService) {
+  constructor(private commentsService: CommentsService) {
   }
   
   ngOnInit(): void {
@@ -30,19 +29,11 @@ export class HomeComponent implements OnInit {
     this.commentsService.getMainFeed(sortType).subscribe(
       data => {
         this.mainFeedLoading = false;
-        this.notificationService.info('hello info!');
-        this.notificationService.undo('hello undo!', () => this.undoAction());
-        this.notificationService.warning('hello warning!');
-        this.notificationService.error('hello error!');
         this.mainFeed = data;
       }, 
       error => {
         this.mainFeedLoading = false;
         console.log(error);
       });
-  }
-
-  private undoAction() {
-    console.log('clicked!');
   }
 }

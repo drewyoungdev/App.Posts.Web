@@ -9,8 +9,8 @@ export class NotificationService {
 
   private getConfig(): SnotifyToastConfig { 
     return {
-      // timeout: 5000,
-      timeout: 0,
+      timeout: 5000,
+      // timeout: 0,
       showProgressBar: false,
       closeOnClick: false,
       position: SnotifyPosition.centerBottom,
