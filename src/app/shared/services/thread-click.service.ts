@@ -1,3 +1,4 @@
+// TODO: Move into comments component folder as this service should only be used in there
 import { Subject } from 'rxjs';
 import { ThreadClick } from 'src/app/models/threadClick';
 

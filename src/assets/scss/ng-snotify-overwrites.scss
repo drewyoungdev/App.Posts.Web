@@ -1,0 +1,82 @@
+$snotify-width: 500px;
+.snotify { 
+    width: $snotify-width;
+}
+$snotify-color-info: #1E90FF;
+$snotify-color-warning: #ff8d1e;
+$snotify-color-error: #ff381e;
+.snotify-simple,
+.snotify-info,
+.snotify-warning,
+.snotify-error { 
+    border-radius: 5px;
+    border: 1px solid silver;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 15px 0px;
+}
+.snotify-info { 
+    border-left: 15px solid $snotify-color-info;
+}
+.snotify-warning { 
+    border-left: 15px solid $snotify-color-warning;
+}
+.snotify-error { 
+    border-left: 15px solid $snotify-color-error;
+}
+.snotify-icon { 
+    display: none;
+}
+.snotify-centerBottom  {
+    position: fixed;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+}
+.snotifyToast {
+    display: flex;
+    align-items: center;
+}
+.snotifyToast__inner {
+    flex-grow: 1
+}
+.snotifyToast__buttons {
+    border: none;
+}
+.snotifyToast__buttons button {
+    border: none;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+    text-transform: uppercase;
+    background-color: transparent;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 3px 16px;
+}
+.snotify-info button {
+    color: $snotify-color-info;
+}
+.snotify-info button:hover {
+    background: none;
+    color: #1564b2;
+}
+.snotify-warning button {
+    color: $snotify-color-warning;
+}
+.snotify-warning button:hover {
+    background: none;
+    color: #b26215;
+}
+.snotify-error button {
+    color: $snotify-color-error;
+}
+.snotify-error button:hover {
+    background: none;
+    color: #b22715;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainPost } from 'src/app/models/mainPost';
 import { CommentsService } from 'src/app/core/http/comments.service';
-import { SnotifyService, SnotifyToast } from 'ng-snotify';
+import { NotificationService } from 'src/app/core/services/notification.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   mainFeed: MainPost[] = new Array<MainPost>();
   mainFeedLoading: boolean;
 
-  constructor(private commentsService: CommentsService, private notifyService: SnotifyService) {
+  constructor(private commentsService: CommentsService, private notificationService: NotificationService) {
   }
   
   ngOnInit(): void {
@@ -30,19 +30,10 @@ export class HomeComponent implements OnInit {
     this.commentsService.getMainFeed(sortType).subscribe(
       data => {
         this.mainFeedLoading = false;
-        this.notifyService.html(
-          `
-            <div class="snotifyToast__body"><i>Html</i> <b>toast</b> <u>content</u></div>
-          `, {
-          timeout: 0,
-          showProgressBar: false,
-          closeOnClick: false,
-          position: "centerBottom",
-          buttons: [
-            { text: 'Undo', action: (toast) => this.notificationClick(toast), bold: true },
-            { text: 'Close', action: (toast) => {console.log('Clicked: Later'); this.notifyService.remove(toast.id); } , bold: true },
-          ]
-        });
+        this.notificationService.info('hello info!');
+        this.notificationService.undo('hello undo!', () => this.undoAction());
+        this.notificationService.warning('hello warning!');
+        this.notificationService.error('hello error!');
         this.mainFeed = data;
       }, 
       error => {
@@ -51,8 +42,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  private notificationClick(toast: SnotifyToast) {
+  private undoAction() {
     console.log('clicked!');
-    this.notifyService.remove(toast.id);
   }
 }

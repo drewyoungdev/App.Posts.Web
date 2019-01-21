@@ -7,69 +7,7 @@ $fa-font-path: "~font-awesome/fonts";
 
 // https://artemsky.github.io/ng-snotify/documentation/
 @import "~ng-snotify/styles/simple";
-$snotify-width: 600px;
-.snotify { 
-    width: $snotify-width;
-}
-$snotify-color-info: dodgerblue;
-$snotify-color-error: #ff381e;
-$snotify-color-warn: #ff8d1e;
-.snotify-simple { 
-    border-radius: 5px;
-    border: 1px solid silver;
-    border-left: 15px solid $snotify-color-info;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 15px 0px;
-}
-.snotify-centerBottom  {
-    position: fixed;
-    left: 50%;
-    bottom: 15px;
-    transform: translateX(-50%);
-}
-.snotifyToast {
-    display: flex;
-    align-items: center;
-}
-.snotifyToast__inner {
-    width: 75%;
-    display: flex;
-}
-.snotifyToast__buttons {
-    display: flex;
-    align-items: center;
-    border: none;
-
-    // height: 0px;
-    // opacity: 0;
-    // transition: .2s cubic-bezier(.17,.67,.83,.67)
-}
-.snotifyToast__buttons button {
-    border: none;
-    
-    box-sizing: border-box;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    line-height: 24px;
-    text-transform: uppercase;
-    background-color: transparent;
-    color: $snotify-color-info;
-    fill: $snotify-color-info;
-    border-width: 1px;
-    border-style: solid;
-    border-color: transparent;
-    border-image: initial;
-    border-radius: 4px;
-    text-decoration: none;
-    padding: 3px 16px;
-}
-.snotifyToast__buttons button:hover {
-    background: none;
-    color: #1564b2;
-    // opacity: 1;
-    // height: 35px;
-}
+@import "./assets/scss/ng-snotify-overwrites.scss";
 
 * {
     font-family: 'Roboto', sans-serif;
