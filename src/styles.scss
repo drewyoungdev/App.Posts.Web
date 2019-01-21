@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome';
+
+// https://ng-select.github.io/ng-select#/data-sources
 @import "~@ng-select/ng-select/themes/default.theme.css";
+
+// https://artemsky.github.io/ng-snotify/documentation/
+@import "~ng-snotify/styles/simple";
+@import "./assets/scss/ng-snotify-overwrites.scss";
 
 * {
     font-family: 'Roboto', sans-serif;
@@ -10,7 +16,6 @@ $fa-font-path: "~font-awesome/fonts";
 html {
     background: #dae0e6;
 }
-
 button {
     background: transparent;
     border: none;
@@ -29,7 +34,6 @@ button {
 .comment-vote-down:hover {
     color: cornflowerblue;
 }
-
 .hidden {
     display: none !important;
 }

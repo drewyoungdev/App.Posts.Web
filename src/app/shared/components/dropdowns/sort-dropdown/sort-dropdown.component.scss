@@ -1,5 +1,6 @@
 @import './src/assets/scss/_variables.scss';
 
+// TODO: move these into their own unique stylesheet if re-used for various dropdowns
 // Too get these styles to overwrite properly, ViewEncapsulation had to be set to None
 .ng-select.sort-dropdown {
     font-size: 12px;

@@ -3,13 +3,19 @@
         <i class="fa fa-comment comment-footer-icon"></i>
         5.8K Comments
     </button>
-    <button class="comment-footer-item comment-footer-btn">
+    <button (click)="onShare($event)" class="comment-footer-item comment-footer-btn">
         <i class="fa fa-share comment-footer-icon"></i>
         Share
     </button>
-    <button class="comment-footer-item comment-footer-btn">
-        <i class="fa fa-bookmark comment-footer-icon"></i>
-        Save
+    <button (click)="onSave($event)" class="comment-footer-item comment-footer-btn">
+        <div [hidden]="isSaved">
+            <i class="fa fa-bookmark comment-footer-icon"></i>
+            Save
+        </div>
+        <div [hidden]="!isSaved">
+            <i class="fa fa-bookmark post-saved comment-footer-icon"></i>
+            Unsave
+        </div>
     </button>
     <div class="comment-footer-item comment-footer-btn">
         98% Upvoted
