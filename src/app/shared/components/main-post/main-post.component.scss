@@ -1,5 +1,6 @@
 @import './src/assets/scss/_variables.scss';
 
+// Sticky Header Styling
 .sticky-header {
     box-sizing: border-box;
     width: $mainBodyWidth;
@@ -58,19 +59,51 @@
     min-width: 0;
 }
 
+// Main Post Content
 .main-post {
     padding: 8px 0 0 40px;
     position: relative;
 }
-
 .main-post-content { 
     padding-left: 5px;
 }
-
 .main-post-content-margin {
     margin: 0px 8px 8px;
 }
 
+// Main Post Header Styling
+.main-post-header {
+    -webkit-box-align: center;
+    align-items: center;
+    line-height: 16px;
+    display: flex;
+    margin-left: 0px;
+    min-height: 18px;
+}
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.main-post-header-subject,
+.main-post-header-icon,
+.main-post-header-item {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+
+    flex: 0 0 auto;
+}
+.main-post-header-icon i {
+    color: $primaryColorTint75;
+    margin-right: 4px;
+}
+.main-post-header-item {
+    color: $blackTint50;
+    padding-left: 8px;
+    font-weight: 400;
+}
+
+// Main Post Title Styling
 .main-post-title {
     display: inline;
     color: rgb(26, 26, 27);
@@ -80,6 +113,7 @@
     line-height: 24px;
 }
 
+// Main Post Body Styling
 .main-post-body {
     line-height: 21px;
     color: rgb(28, 28, 28);
@@ -89,6 +123,40 @@
     margin-bottom: 16px;
 }
 
+// Main Post Footer Styling
+// Copied from Comment-Footer
+.comment-footer {
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 4px 0px 8px;
+}
+.comment-footer div:last-child {
+    margin-left: auto;
+}
+.comment-footer-item {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    color: rgb(135, 138, 140);
+}
+.comment-footer-btn {
+    display: inline-block;
+    margin-right: 12px;
+}
+.comment-footer-icon {
+    display: inline-block;
+    margin-right: 5px;
+}
+button:hover {
+    text-decoration: underline;
+}
+.post-saved { 
+    color: dodgerblue;
+}
+
+// Main Post Button Styling
 .main-post-btns {
     width: 40px;
     border-left: 4px solid transparent;

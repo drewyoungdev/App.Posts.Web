@@ -1,8 +1,7 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Post } from 'src/app/models/post';
-import { ThreadClickService } from 'src/app/shared/services/thread-click.service';
+import { ThreadClickService } from 'src/app/shared/components/comment/threadlines/services/thread-click.service';
 import { ThreadClick } from 'src/app/models/threadClick';
-import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -20,14 +19,23 @@ export class ContentComponent implements OnInit {
   numOfChildrenHidden : number;
   showReply : boolean = false;
 
-  subscription : Subscription;
+  maxDepth : number = environment.maxDepth;
   
   constructor(private threadClickService : ThreadClickService) { }
 
   ngOnInit() {
-    this.subscription = this.threadClickService.Stream.subscribe(threadClick => {
+    this.threadClickService.Stream.subscribe(threadClick => {
       return this.processThreadClick(threadClick);
     });
+  }
+
+  emitThreadClick() {
+    var threadClick = new ThreadClick();
+    threadClick.shouldHide = false;
+    threadClick.id = this.comment.id;
+    threadClick.depth = this.comment.depth;
+    
+    this.threadClickService.Stream.emit(threadClick);
   }
 
   replyClicked() {

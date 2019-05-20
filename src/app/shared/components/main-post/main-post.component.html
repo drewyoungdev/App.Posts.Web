@@ -1,4 +1,5 @@
 <div (scroll)="onWindowScroll($event)">
+  <!-- Main Post Sticky Header Content -->
   <div *ngIf="isStickied" class="sticky-header">
     <div class="sticky-header-content">
         <div class="sticky-header-content-buttons">
@@ -22,14 +23,45 @@
         </div>
     </div>
   </div>
+
+  <!-- Main Post Content -->
   <div class="main-post" #mainPost>
     <div class="main-post-content">
       <div class="main-post-content-margin">
-        <main-post-header></main-post-header>
+        <!-- Main Post Header -->
+        <!-- TODO combine this with regular comment header if content does not vary much -->
+        <div class="main-post-header">
+            <div class="main-post-header-icon">
+              <a>
+                <i class="fa fa-desktop"></i>
+              </a>
+            </div>
+            <div class="main-post-header-subject">
+              <a>
+                r/HelloWorld
+              </a>
+            </div>
+            <div class="main-post-header-item">
+                &#183;
+            </div>
+            <div class="main-post-header-item">
+                Posted by User
+            </div>
+            <div class="main-post-header-item">
+                &#183;
+            </div>
+            <div class="main-post-header-item">
+                8 hours ago
+            </div>
+          </div>
       </div>
+
+      <!-- Main Post Title -->
       <div class="main-post-content-margin">
         <h2 class="main-post-title">This is the title of this current thread!</h2>
       </div>
+
+      <!-- Main Post Body -->
       <div class="main-post-body">
         This is the rest of the text for the main post body.
         This is the rest of the text for the main post body.
@@ -37,10 +69,36 @@
         This is the rest of the text for the main post body.
         This is the rest of the text for the main post body.
       </div>
+
+      <!-- Main Post Footer -->
       <div class="main-post-content-margin">
-        <main-post-footer></main-post-footer>
+        <div class="comment-footer">
+            <button class="comment-footer-item comment-footer-btn">
+                <i class="fa fa-comment comment-footer-icon"></i>
+                5.8K Comments
+            </button>
+            <button (click)="onShare($event)" class="comment-footer-item comment-footer-btn">
+                <i class="fa fa-share comment-footer-icon"></i>
+                Share
+            </button>
+            <button (click)="onSave($event)" class="comment-footer-item comment-footer-btn">
+                <div [hidden]="isSaved">
+                    <i class="fa fa-bookmark comment-footer-icon"></i>
+                    Save
+                </div>
+                <div [hidden]="!isSaved">
+                    <i class="fa fa-bookmark post-saved comment-footer-icon"></i>
+                    Unsave
+                </div>
+            </button>
+            <div class="comment-footer-item comment-footer-btn">
+                98% Upvoted
+            </div>
+        </div>
       </div>
     </div>
+
+    <!-- Main Post Buttons -->
     <div class="main-post-btns">
       <button>
           <div class="comment-btn-icon comment-vote-up">

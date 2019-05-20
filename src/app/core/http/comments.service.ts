@@ -16,6 +16,13 @@ export class CommentsService {
   private configUrl = './assets/mocks';
   private isServerRunning: boolean = false;
 
+  private mainPosts: MainPost[]; // local cache
+
+  // Set MainPost that was clicked in local cache
+  // Update URL with Angular Location (https://stackoverflow.com/questions/35618463/change-route-params-without-reloading-in-angular-2)
+  // Modal will generate based on the MainPost in cache
+  // Destroy everything on close
+
   constructor(private httpClient: HttpClient) { }
 
   getMainFeed(sortType: string): Observable<MainPost[]> {

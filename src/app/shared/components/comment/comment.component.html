@@ -1,16 +1,41 @@
 <div *ngIf="comment.depth <= maxDepth">
     <div class="comment-depth-{{comment.depth}}" id="{{comment.id}}">
-        <threadlines [depth]="comment.depth" [previousParentIds]="parentIds" [currentId]="comment.id"></threadlines>
+        <!-- Main Comment Threadlines -->
+        <threadlines 
+            [depth]="comment.depth" 
+            [previousParentIds]="parentIds" 
+            [currentId]="comment.id">
+        </threadlines>
+
+        <!-- Main Comment Content -->
         <comment-content [comment]="comment"></comment-content>
     </div>
+
+    <!-- Comment Replies -->
     <div *ngFor="let reply of comment.replies">
-        <comment [previousParentIds]="parentIds" [comment]="reply"></comment>
+        <comment 
+            [previousParentIds]="parentIds" 
+            [comment]="reply">
+        </comment>
     </div>
+
+    <!-- Load More Replies/Continue in New Thread-->
     <div class="comment-more-replies-depth-{{comment.depth}}">
-        <threadlines [previousParentIds]="parentIds" [includeNewThread]="false"></threadlines>   
+        <!-- Load More Replies/Continue in New Thread Threadlines -->
+        <threadlines 
+            [previousParentIds]="parentIds" 
+            [includeNewThread]="false">
+        </threadlines>
+
+        <!-- Load More Replies -->
         <div *ngIf="!isRepliesLoaded && comment.numOfHiddenReplies > 0">
-            <more-replies [comment]="comment" (repliesLoadedEvent)="repliesLoaded()"></more-replies>  
+            <div (click)="moreRepliesOnClick()" class="comment-more-replies-text depth-{{comment.depth}}">
+                <p *ngIf="!isRepliesLoaded">{{comment.numOfHiddenReplies}} more replies</p>
+                <p *ngIf="showRepliesLoadingMessage">Loading...</p>
+            </div> 
         </div>
+
+        <!-- Link to Continue in New Thread -->
         <div *ngIf="comment.mustContinueInNewThread">
             <!-- move into it's own component -->
             <div class="comment-more-replies-text depth-{{comment.depth}}">
