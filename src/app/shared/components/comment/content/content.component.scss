@@ -1,5 +1,21 @@
 @import './src/assets/scss/_variables.scss';
 
+// Button Styling
+.comment-btn {
+    position: absolute;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    fill: inherit;
+    flex-direction: column;
+    width: $commentBtnWidth;
+    height: $commentBtnHeight;
+    text-align: center;
+    z-index: 3;
+    margin: 0 0 0 $commentBtnMarginLeft;
+}
+
+// Content Card Styling
 .comment-content {
     box-sizing: border-box;
     opacity: 1;
@@ -15,16 +31,80 @@
     border-radius: 4px;
 }
 
-.comment-btn {
-    position: absolute;
+// Header Styling
+.comment-header {
     -webkit-box-align: center;
     align-items: center;
+    line-height: 16px;
     display: flex;
-    fill: inherit;
-    flex-direction: column;
-    width: $commentBtnWidth;
-    height: $commentBtnHeight;
-    text-align: center;
-    z-index: 3;
-    margin: 0 0 0 $commentBtnMarginLeft;
+    margin-left: 0px;
+    min-height: 18px;
+}
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.comment-header-user,
+.comment-header-user-hidden,
+.comment-header-item,
+.comment-header-item-hidden {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+
+    flex: 0 0 auto;
+}
+.comment-header-user {
+    color: $primaryColorTint75;
+    display: inline-block;
+}
+.comment-header-user-hidden { 
+    color: $primaryColorTint25;
+    display: inline-block;
+}
+.comment-header-item {
+    color: $blackTint50;
+    padding-left: 8px;
+}
+.comment-header-item-hidden {
+    color: $blackTint25;
+    padding-left: 8px;
+}
+.comment-header-padding {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+}
+
+// Body Styling
+.comment-body {
+    padding: 8px 0;
+    width: 100%;
+}
+
+// Footer Styling
+.comment-footer {
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 4px 0px 8px;
+}
+.comment-footer-item {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    color: rgb(135, 138, 140);
+}
+.comment-footer-btn {
+    display: inline-block;
+    margin-right: 12px;
+}
+.comment-footer-icon {
+    display: inline-block;
+    margin-right: 5px;
+}
+button:hover {
+    text-decoration: underline;
 }

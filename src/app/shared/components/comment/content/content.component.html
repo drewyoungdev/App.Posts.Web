@@ -1,8 +1,84 @@
 <div class="comment-content comment-content-depth-{{comment.depth}} depth-{{comment.depth}}">
-    <comment-vote-buttons [hidden]="collapsed" [depth]="comment.depth"></comment-vote-buttons>
-    <comment-expand-button [hidden]="!collapsed" [currentId]="comment.id" [depth]="comment.depth"></comment-expand-button>
-    <comment-header [isHidden]="collapsed" [author]="comment.author" [points]="comment.score" [createDate]="comment.createDate" [numOfChildrenHidden]="numOfChildrenHidden"></comment-header>
-    <comment-body [hidden]="collapsed" [bodyText]="comment.body"></comment-body>
-    <comment-footer [hidden]="collapsed" [depth]="comment.depth" (replyClickedEvent)="replyClicked()"></comment-footer>
-    <reply-box [hidden]="collapsed"  *ngIf="showReply" [canCancel]="true" (replyCancelledEvent)="replyCancelled()" (replySubmittedEvent)="replySubmitted()"></reply-box>
+    <!-- Comment Buttons -->
+    <div class="comment-btn">
+        <!-- Voting Buttons -->
+        <div [hidden]="collapsed">
+            <button>
+                <div class="comment-btn-icon comment-vote-up">
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+            </button>
+            <button> 
+                <div class="comment-btn-icon comment-vote-down">
+                    <i class="fa fa-arrow-down"></i>
+                </div>
+            </button>
+        </div>
+
+        <!-- Expand/Collapse Button --> 
+        <div [hidden]="!collapsed">
+            <button (click)="emitThreadClick()">
+                <div class="comment-btn-icon">
+                    <i class="comment-btn-icon fa fa-plus-circle"></i>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Comment Header -->
+    <div class="comment-header">
+        <div [ngClass]="{ 'comment-header-user': !collapsed, 'comment-header-user-hidden': collapsed }">
+            <a>{{comment.author}}</a>
+        </div>
+        <div [ngClass]="{ 'comment-header-item': !collapsed, 'comment-header-item-hidden': collapsed }">
+            {{comment.points | numberSuffix : 1 }} points
+        </div>
+        <div [ngClass]="{ 'comment-header-item': !collapsed, 'comment-header-item-hidden': collapsed }">
+            &#183;
+        </div>
+        <a [ngClass]="{ 'comment-header-item': !collapsed, 'comment-header-item-hidden': collapsed }">
+            {{comment.createDate | amTimeAgo }}
+            <!-- when create_date is converted into create_date_utc -->
+            <!-- {{createDate | amFromUtc | amLocal | amTimeAgo }} -->
+        </a>
+        <div 
+            *ngIf="collapsed" 
+            [ngClass]="{ 'comment-header-item': !collapsed, 'comment-header-item-hidden': collapsed }">
+            ({{numOfChildrenHidden}} children)
+        </div>
+        <div class="comment-header-padding">
+        </div>
+    </div>
+
+    <!-- Comment Body -->
+    <div [hidden]="collapsed">
+        <div class="comment-body">
+            {{comment.body}}
+        </div>
+    </div>
+
+    <!-- Comment Footer  -->
+    <div [hidden]="collapsed">        
+        <div class="comment-footer">
+            <button *ngIf="comment.depth < maxDepth" (click)="replyClicked()" class="comment-footer-item comment-footer-btn">
+                <i class="fa fa-comment comment-footer-icon"></i>
+                Reply
+            </button>
+            <button class="comment-footer-item comment-footer-btn">
+                Share
+            </button>
+            <button class="comment-footer-item comment-footer-btn">
+                Save
+            </button>
+        </div>
+    </div>
+
+    <!-- Reply Box -->
+    <reply-box 
+        [hidden]="collapsed" 
+        *ngIf="showReply" 
+        [canCancel]="true" 
+        (replyCancelledEvent)="replyCancelled()" 
+        (replySubmittedEvent)="replySubmitted()">
+    </reply-box>
 </div>
