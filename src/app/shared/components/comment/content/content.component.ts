@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Post } from 'src/app/models/post';
-import { ThreadClickService } from 'src/app/shared/services/thread-click.service';
+import { ThreadClickService } from 'src/app/shared/components/comment/threadlines/services/thread-click.service';
 import { ThreadClick } from 'src/app/models/threadClick';
 import { environment } from 'src/environments/environment';
 
